@@ -1,0 +1,15 @@
+@import "../../../assets/colors";
+@import "../../../assets/fonts/fonts.sass";
+
+.live-control {
+  position: absolute;
+  display: block;
+  z-index: 2;
+  width: 20vw;
+  height: 30vh;
+  right: 30vw;
+  bottom: 0;
+  & button {
+    border-radius: 0;
+  }
+}

@@ -1,0 +1,65 @@
+@import ../../../assets/colors
+@import ../../../assets/var
+@import ../../../assets/fonts/fonts
+@import ../../../assets/contextMenu
+@import live
+
+.presentation
+    position: relative
+    display: inline-block
+    bottom: 0
+    height: $system-division-height
+    width: 100%
+    max-width: 25%
+    max-height: $system-division-height
+    padding: 1rem
+    border-right: 1px solid $white
+    overflow-x: auto
+
+ul.presentation-list    
+    list-style: none
+    width: 100%
+    padding: 0
+
+.presentation-list-item
+    padding: 8px
+    color: $white
+    border-bottom: 1px solid $white
+    line-height: 1.5rem
+    transition: all .15s ease
+    &:hover        
+        background: $white
+        color: $smoky-black
+        cursor: pointer   
+
+.selectedPresentation
+    background: $white
+    color: $smoky-black
+
+.presentation > span.title 
+    color: $white
+    display: block
+    text-align: center
+    font-size: calc(100vw / 64)
+    font-family: 'Montserrat ExtraLight', sans-serif
+    letter-spacing: .5rem
+  
+
+.presentation-list-item .title
+    font-size: 1.2rem
+    width: 100%
+
+.presentation-list-item .path
+    font-size: .8rem
+    width: 100%
+    height: 2rem
+    font-family: 'Montserrat ExtraLight', sans-serif
+
+.presentation-list-item .type,
+.presentation-list-item .type > i.mdi::before
+    font-size: 3.5rem
+    height: 100%
+    padding-top: 1rem
+
+  
+

@@ -1,0 +1,13 @@
+<div class="projection">
+    <video #videoPlayer [ngClass]="{'no-show': showingVideo == false}" class="video-player" [src]="currentMedia">
+    </video>
+    <img #imageShow [ngClass]="{'no-show': showingImage == false}" class="image-show" [src]="currentMedia">
+</div>
+<div class="overlay">
+    <p #textShower [ngClass]="{'shadow': textHasShadow}">
+        {{textToShow}}
+    </p>
+    <span #detailShower>
+        {{detailToShow}}
+    </span>
+</div>

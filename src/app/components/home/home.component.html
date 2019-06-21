@@ -1,0 +1,74 @@
+<app-navbar></app-navbar>
+<div class="home-container">
+    <app-files (onFileSelect)="onFileSelect($event)" (onFileBackgroundSelect)="onFileBackgroundSelect($event)"
+        (onFilePlay)="onFileSelectPlay($event)">
+    </app-files>
+    <app-presentations (onSlideChange)="onSlideChange($event)"></app-presentations>
+
+    <div class="video" [ngClass]="{'no-show': showVideo == false}">
+        <video #videoPlayer class="video-player" [src]="currentMedia">
+        </video>
+        <div class="video-controler" *ngIf="currentMedia">
+            <div class="form-row">
+                <div class="col-1" *ngIf="isPaused">
+                    <i class="mdi mdi-play mdi-24px controler" (click)="togglePlay()" placement="top"
+                        ngbTooltip="Reproduzir"></i>
+                </div>
+                <div class="col-1" *ngIf="isPlaying">
+                    <i class="mdi mdi-pause mdi-24px controler" (click)="togglePause()" placement="top"
+                        ngbTooltip="Pausar"></i>
+                </div>
+                <div class="col-1">
+                    <i class="mdi mdi-stop mdi-24px controler" (click)="toggleStop()" placement="top"
+                        ngbTooltip="Parar"></i>
+                </div>
+                <div class="col-1">
+                    <i class="mdi mdi-loop mdi-24px controler" [ngClass]="{'icon-toggled': isLooping == true}"
+                        (click)="toggleLoop()" placement="top" ngbTooltip="Ativar/Desativar Loop"></i>
+                </div>
+
+                <div class="col-5 time">
+                    <div class="slidecontainer">
+                        <input #position type="range" min="0" max="100" [value]="currentProgress" step=".1"
+                            class="slider" (input)="setPosition()">
+                    </div>
+                </div>
+                <div class="col-1">
+                    <i class="mdi mdi-volume-mute mdi-24px controler" [ngClass]="{'icon-toggled': API.muted == true}"
+                        (click)="toggleMute()" placement="top" ngbTooltip="Mutar/Desmutar"></i>
+                </div>
+
+                <div class="col-3 volume">
+                    <div class="slidecontainer">
+                        <input #volume type="range" min="0" max="1" step=".1" [value]="currentVolume" class="slider"
+                            [ngClass]="{'slider-danger': API.muted}" (input)="setVolume()">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="overlay">
+            <p>
+                {{textToShow}}
+            </p>
+            <span>
+                {{detailToShow}}
+            </span>
+        </div>
+    </div>
+
+    <div class="image" [ngClass]="{'no-show': showImage == false}">
+        <img #imageShow class="image-show" [src]="currentMedia">
+        <div class="overlay">
+            <p>
+                {{textToShow}}
+            </p>
+            <span>
+                {{detailToShow}}
+            </span>
+        </div>
+    </div>
+
+    <app-live (onBlackScreen)="blackProjection()" (onClearScreen)="clearPresentationProjection()"
+        (onLogoScreen)="logoProjection()" (onRemoveBackground)="removeBackgroundProjection()"></app-live>
+</div>

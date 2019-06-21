@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <h4 class="modal-title">Músicas</h4>
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="music-create">
+
+        <div class="form-row">
+            <div class="form-group col-6">
+                <label>Nome da Música</label>
+                <input type="text" class="form-control" [(ngModel)]="title">
+            </div>
+            <div class="form-group col-6">
+                <label>Artista</label>
+                <input type="text" class="form-control" [(ngModel)]="artist">
+            </div>
+            <div class="form-group col-12">
+                <label>Letra</label>
+                <textarea class="form-control" cols="30" rows="10" [(ngModel)]="lyric"></textarea>
+            </div>
+        </div>
+
+        <div class="music-control">
+            <div class="form-row">
+                <div class="col-2 control" (click)="save()">
+                    Salvar
+                </div>
+                <div class="col-2 control" (click)="toUpper()">
+                    Maiúsculo
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

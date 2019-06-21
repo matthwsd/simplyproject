@@ -1,0 +1,40 @@
+@import ../../../../assets/colors
+@import ../../../../assets/fonts/fonts
+@import ../modal
+
+.modal-body .music-create
+    display: block
+    height: 100%
+    width: 100%
+    padding: .5rem
+
+.modal-body .music-create input.form-control,
+.modal-body .music-create textarea.form-control
+    resize: none
+    border: 0.1rem solid $dark-purple
+    background: transparent
+    color: $white
+    font-family: 'Montserrat Light',sans-serif
+
+
+.music-create .music-control
+    display: table
+    height: 100%
+    width: 100%
+
+.music-create .music-control .form-row
+    padding: .5rem
+    height: 100%
+    margin: 0
+
+.music-create .music-control .control
+    display: table-cell
+    height: 100%
+    padding: 0.5rem
+    width: auto
+    text-align: center
+    vertical-align: middle
+    &:hover
+        background-color: $dark-purple
+        cursor: pointer
+

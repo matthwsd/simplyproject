@@ -1,0 +1,42 @@
+<!-- Modal para Selecionar as músicas para adicionar à apresentação -->
+
+<div class="modal-header">
+  <h4 class="modal-title pr-1">Músicas</h4>
+  <input type="text" class="form-control search" placeholder="Pesquisar por letra, artista, título..."
+    [(ngModel)]="searchTerm" (input)="searchMusic(searchTerm)">
+  <button type="button" class=" pl-1 close" aria-label="Close" (click)="close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <ul class="music-list">
+    <li class="music-item" *ngFor="let music of musics" (click)="selectMusic(music)">
+      <span class="title">
+        {{music.Title}}
+      </span><br>
+      <span class="artist">
+        {{music.Artist}}
+      </span>
+    </li>
+  </ul>
+
+  <div class="music-selected" *ngIf="musicSelected">
+    <textarea class="music-selected-lyric" cols="30" rows="10" [value]="musicSelected.Lyric">
+        </textarea>
+
+    <div class="music-control">
+      <div class="form-row">
+        <div class="control" (click)="addToPresentation()">
+          Selecionar
+        </div>
+        <div class="control">
+          Salvar
+        </div>
+        <div class="control" (click)="deleteMusic()">
+          Excluir
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

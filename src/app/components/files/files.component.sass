@@ -1,0 +1,79 @@
+@import ../../../assets/colors
+@import ../../../assets/var
+@import ../../../assets/fonts/fonts
+@import ../../../assets/contextMenu
+.files
+    position: relative
+    display: inline-block
+    left: 0
+    bottom: 0
+    height: $system-division-height
+    width: 25%
+    max-height: $system-division-height
+    padding: 1rem 2rem 2rem 2rem
+    border-right: 1px solid $white
+    overflow-x: auto
+
+ul.file-list    
+    list-style: none
+    width: 100%
+    padding: 0
+
+ul.file-list li
+    padding: .5rem
+    height: 5rem
+    width: 100%
+
+.file-list-item
+    display: inline-block
+    color: $white
+    height: auto
+    line-height: 1.3rem
+
+.files > span.title 
+    color: $white
+    display: block
+    text-align: center
+    font-size: calc(100vw / 64)
+    font-family: 'Montserrat ExtraLight', sans-serif
+    letter-spacing: calc(100vw / 128)
+    
+.file-list-item:hover
+    background: $white
+    color: $smoky-black
+    cursor: pointer
+
+.file-list-item .title
+    display: block
+    font-size: 1.2rem
+    width: 100%
+    padding: .2rem
+    word-break: break-all
+    text-overflow: ellipsis
+
+.file-list-item .path
+    font-size: .8rem
+    width: 100%
+    height: auto
+
+
+.file-list-item .type,
+.file-list-item .type > i.mdi::before
+    padding-top: .6rem
+    font-size: 3.5rem
+    height: 100%
+   
+
+.video-preview,
+.image-preview
+    position: relative
+    display: block
+    float: left
+    top: 50%
+    background-color: black
+    object-fit: cover
+    margin: auto
+    transform: translateY(-50%)
+    width: auto
+    height: 3.5rem
+    margin-right: .25rem

@@ -1,0 +1,13 @@
+.action {
+  height: 100%;
+  background: #2b2c2c;
+  padding: 0.5rem;
+  color: #eca711;
+  border: 0;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  &:hover {
+    background: #eca711;
+    color: #2b2c2c;
+  }
+}

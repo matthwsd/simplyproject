@@ -1,0 +1,56 @@
+<div class="files">
+  <span class="title">MÍDIA</span>
+
+  <!-- <ul class="file-list">
+    <li *ngFor="let file of files; index as i" class="file-list-item" (click)="selectFile(file)"
+      (contextmenu)="contextMenu(i, $event)">
+      <span class="type">
+        <i class="mdi float-right"
+          [ngClass]="{'mdi-file-video': file.type == 'VIDEO' , 'mdi-file-image': file.type == 'IMAGE'}"></i>
+      </span>
+      <span class="title">{{file.title}}</span><br>
+    </li>
+  </ul>
+</div> -->
+  <ul class="file-list">
+    <li *ngFor="let file of files; index as i" class="file-list-item" (click)="selectFile(file)"
+      (contextmenu)="contextMenu(i, $event)">
+      <video muted class="video-preview" [src]="'file://'+file.path" *ngIf="file.type =='VIDEO'">
+      </video>
+      <img class="image-preview" [src]="'file://'+file.path" *ngIf="file.type =='IMAGE'">
+      <p class="title">{{file.title.trim()}}</p>
+    </li>
+  </ul>
+</div>
+
+
+<div #contextFileMenu class="context" [ngClass]="{'no-show': showContextFileMenu === false}" [style.top.px]="top"
+  [style.left.px]="left">
+  <ul>
+    <li class="item-divider">
+      <span>Reprodução</span>
+    </li>
+    <li class="item" (click)="selectFileFromContextToPlay()">
+      <span *ngIf="isContextFileMenuForImage">Mostrar</span>
+      <span *ngIf="!isContextFileMenuForImage">Reproduzir</span>
+    </li>
+    <li class="item" (click)="selectFileFromContextAsBackground()">
+      <span>Segundo Plano</span>
+    </li>
+    <li class="item-divider">
+      <span>Opções</span>
+    </li>
+    <li class="item" (click)="removeFile()">
+      <span>Remover Arquivo</span>
+    </li>
+    <li class="item" (click)="clearList()">
+      <span>Limpar Lista</span>
+    </li>
+    <li class="item-divider" *ngIf="isContextFileMenuForImage">
+      <span>Imagem</span>
+    </li>
+    <li class="item" (click)="setAsLogo()" *ngIf="isContextFileMenuForImage">
+      <span>Definir como logo</span>
+    </li>
+  </ul>
+</div>

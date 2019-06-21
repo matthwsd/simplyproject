@@ -1,0 +1,67 @@
+@import "../../../assets/colors";
+@import "../../../assets/var";
+
+.app-menu ul {
+  z-index: 10000;
+  width: 100vw;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: $grany;
+  font-size: 1.5vh;
+  max-height: 3.5vh;
+  & > li {
+    float: left;
+    transition: all 0.2s ease;
+    & > a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 0 0.5vw 0 0.5vw;
+      margin: 0.5vh 0 0.5vh 0;
+      text-decoration: none;
+    }
+    &:hover {
+      background: $dark-purple;
+      cursor: pointer;
+    }
+  }
+}
+
+.app-menu ul li > div.options {
+  position: absolute;
+  display: none;
+  min-width: 12vw;
+  width: auto;
+  height: auto;
+  background: $grany;
+  color: white;
+  z-index: 10000;
+  transition: all 0.2s ease;
+  box-shadow: 2px 2px 5px #000;
+  & div.item {
+    display: block;
+    height: auto;
+    width: 100%;
+    padding: 0.5rem;
+    &:hover {
+      background: $dark-purple;
+    }
+
+    & .short {
+      float: right;
+      font-size: 0.7rem;
+      color: #d4d4d4;
+      height: 100%;
+    }
+  }
+}
+
+.app-menu ul li:hover > div.options {
+  display: block;
+}
+
+.app-menu ul li.hover-warning:hover {
+  background: #f02c12;
+}

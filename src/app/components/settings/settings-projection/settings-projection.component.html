@@ -1,0 +1,58 @@
+<div class="modal-header">
+  <h4 class="modal-title">Configurações</h4>
+  <button type="button" class="close" aria-label="Close" (click)="close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body p-2">
+
+  <!-- Configurações  -->
+  <div class="form-group">
+    <label>Fonte · Tamanho</label>
+    <div class="row">
+      <select class="form-control col-6" [(ngModel)]="fontSelected" (change)="fontFamily()">
+        <option *ngFor="let font of fonts" value="{{font.FAMILY}}" [style.font-family]="font.FAMILY">{{font.NAME}}
+        </option>
+      </select>
+      <select class="form-control col-2" [(ngModel)]="fontSizeSelected" (change)="fontSize()">
+        <option *ngFor="let size of fontSizes" value="{{size}}">{{size}} pt</option>
+      </select>
+      <p class="col-4 text-center font-preview" [style.font-family]="fontSelected"
+        [ngClass]="{'shadow': hasFontShadow}">
+        Eu sou um texto
+      </p>
+    </div>
+    <small>Tamanho máximo = 120pt</small>
+    <div class="row">
+      <div class="col-11 pt-1">
+        Adicionar sombra ao texto
+      </div>
+      <div class="col-1">
+        <label class="container">
+          <input type="checkbox" checked="checked" [(ngModel)]="hasFontShadow" (change)="fontShadow()">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"> </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-11">
+        Iniciar a projeção com a Logo
+      </div>
+      <div class="col-1">
+        <label class="container">
+          <input type="checkbox" checked="checked" [(ngModel)]="startWithLogo" (change)="startLogo()">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"> </div>
+
+
+</div>

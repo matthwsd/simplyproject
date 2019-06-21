@@ -1,0 +1,59 @@
+<div class="app-menu">
+  <ul>
+    <li>
+      <a>Arquivos</a>
+      <div class="options">
+        <div class="item" (click)="showDialog()">
+          Abrir
+          <small class="short">
+            Ctrl+F Ctrl+O
+          </small>
+        </div>
+      </div>
+    </li>
+    <li>
+      <a>Letras</a>
+      <div class="options">
+        <div class="item" (click)="showMusicDialog()">
+          Letras
+          <small class="short">
+            Ctrl+M Ctrl+S
+          </small>
+        </div>
+        <div class="item" (click)="showCreateMusicDialog()">
+          Nova Letra
+          <small class="short">
+            Ctrl+M Ctrl+N
+          </small>
+        </div>
+      </div>
+    </li>
+    <li>
+      <a>Bíblia</a>
+      <small class="short">
+        Ctrl+B Ctrl+O
+      </small>
+    </li>
+    <li>
+      <a>Configuração</a>
+      <div class="options">
+        <div class="item" (click)="showProjectionSettings()">
+          Projeção
+          <small class="short">
+            Ctrl+S Ctrl+P
+          </small>
+        </div>
+      </div>
+    </li>
+
+    <li class="double-p hover-warning float-right" (click)="close()">
+      <a><i class="mdi mdi-window-close"></i></a>
+    </li>
+    <li class="double-p float-right" (click)="maximize()">
+      <a><i class="mdi mdi-square-outline"></i></a>
+    </li>
+    <li class="double-p float-right" (click)="minimize()">
+      <a><i class="mdi mdi-minus"></i></a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,44 @@
+<div class="presentation">
+  <span class="title">APRESENTAÇÃO</span>
+  <ul class="presentation-list">
+    <li *ngFor="let presentation of presentations | async; index as i" class="presentation-list-item"
+      (click)="selectPresentation(presentation)" (contextmenu)="contextPresentation(i, $event, presentation == presentationSelected)"
+      [ngClass]='{selectedPresentation: presentation == presentationSelected}'>
+      <span class="type">
+        <i class="mdi mdi-file-music float-right"></i>
+      </span>
+      <span class="title">{{presentation.Title}}</span><br>
+      <span class="detail">{{presentation.Detail}}</span>
+    </li>
+  </ul>
+</div>
+
+<div class="live" *ngIf="presentationSelected !== null">
+  <span class="title">AO VIVO</span>
+  <div class="form-row live-list">
+    <div *ngFor="let slide of presentationSelected.Slides; index as i" class="live-list-item"
+      [ngClass]="{'active': currentIndexSlide == i}" (click)="changeSlide(i)">
+      <p class="content">
+        {{slide}}
+      </p>
+      <small>{{i+1}}</small>
+    </div>
+  </div>
+
+</div>
+
+
+<div #contextPresentationMenu class="context" [ngClass]="{'no-show': showContextPresentationMenu === false}"
+  [style.top.px]="top" [style.left.px]="left">
+  <ul>
+    <li class="item-divider">
+      <span>Apresentação</span>
+    </li>
+    <li class="item" (click)="removePresentation()">
+      <span>Remover</span>
+    </li>
+    <li class="item" (click)="removeAllPresentations()">
+      <span>Limpar Lista</span>
+    </li>
+  </ul>
+</div>

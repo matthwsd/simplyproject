@@ -1,0 +1,86 @@
+@import ../../../assets/colors
+@import ../../../assets/var
+@import ../../../assets/fonts/fonts
+
+// .live
+//     position: relative
+//     display: inline-block
+//     height: 60vh
+//     width: 32rem
+//     padding-top: 1rem
+//     max-height: 60%
+//     border-right: 1px solid $white
+//     overflow-x: auto
+
+.live
+    position: relative
+    display: inline-block
+    height: 65vh
+    bottom: 30vh
+    width: 50%
+    padding-top: 1rem
+    max-height: 65vh
+    overflow-x: auto
+
+.live-list    
+    list-style: none
+    width: 100%
+    padding-left: 1rem
+
+.live-list-item
+    height: 10rem
+    width: 13rem
+    color: #fcfcfc
+    background: black
+    margin: .5rem
+    display: table
+    vertical-align: middle
+    padding: .5rem
+
+.live > span.title 
+    color: $white
+    display: block
+    text-align: center
+    font-size: calc(100vw / 64)
+    font-family: 'Montserrat ExtraLight', sans-serif
+    letter-spacing: calc(100vw / 128)
+  
+
+.live .live-list .live-list-item > p.content
+    position: relative
+    display: table-cell
+    vertical-align: middle
+    text-align: center
+    height: 100%
+    width: 100%
+    top: 0%
+    color: $white
+    font-size: .8rem
+    white-space: pre-line
+
+.live-list-item:hover
+    background: $dark-purple
+    cursor: pointer
+    border-radius: 0.65rem
+
+.live-list-item.active
+    background: $dark-purple
+
+.live-list-item .title
+    font-size: 1.2rem
+    width: 100%
+
+.live-list-item .path
+    font-size: .8rem
+    width: 100%
+    height: 2rem
+    font-family: 'Montserrat ExtraLight', sans-serif
+
+.live-list-item .type,
+.live-list-item .type > i.mdi::before
+    font-size: 3.5rem
+    height: 100%
+    padding-top: 1rem
+
+  
+
