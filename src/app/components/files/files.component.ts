@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ApplicationRef, Output, EventEmitter, ViewContainerRef } from '@angular/core';
 
-import { FileService } from '../../services/file-lst.service';
+import { FileService } from '../../services/files/file-lst.service';
 import { IFile } from '../../interfaces/filesLst';
 import { ToastrService } from '../../toastr/toastr.service';
 import { Observable } from 'rxjs';

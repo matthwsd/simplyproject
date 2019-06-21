@@ -1,7 +1,7 @@
 import { Component, OnInit, ApplicationRef, ViewChild, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IPresentation } from '../../interfaces/presentation';
-import { PresentationService } from '../../services/presentation.service';
+import { PresentationService } from '../../services/presentation/presentation.service';
 
 import { ISlide } from '../../interfaces/slide';
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, ApplicationRef, ViewChild, setTestabilityGetter } from '@angular/core';
-import { ProjectorService } from '../../services/projector.service';
-import { SettingsJSONService } from '../../services/settings-json.service';
-import { FileService } from '../../services/file-lst.service';
+import { ProjectorService } from '../../services/projector/projector.service';
+import { SettingsJSONService } from '../../services/settings/settings-json.service';
+import { FileService } from '../../services/files/file-lst.service';
 import { remote } from 'electron';
 
 @Component({

@@ -3,7 +3,7 @@ import { NgModel } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 
 import { IMusic } from '../../../interfaces/music';
-import { MusicsService } from '../../../services/musics.service';
+import { MusicsService } from '../../../services/music/musics.service';
 
 import { ToastrService } from '../../../toastr/toastr.service';
 

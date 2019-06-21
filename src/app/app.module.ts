@@ -32,6 +32,7 @@ import { SettingsProjectionComponent } from './components/settings/settings-proj
 import { OnlyNumberDirective } from './directives/only-number.directive';
 import { ToastrComponent } from './toastr/toastr.component';
 import { LiveComponent } from './components/live/live.component';
+import { BibleComponent } from './components/bible/bible.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -53,7 +54,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SettingsProjectionComponent,
     OnlyNumberDirective,
     ToastrComponent,
-    LiveComponent
+    LiveComponent,
+    BibleComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +77,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MusicCreateComponent,
     MusicsSelectComponent,
     SettingsProjectionComponent,
-    ToastrComponent
+    ToastrComponent,
+    BibleComponent
   ]
 })
 export class AppModule { }

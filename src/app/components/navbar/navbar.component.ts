@@ -7,8 +7,9 @@ import { NgbModal, } from '@ng-bootstrap/ng-bootstrap'
 import { MusicCreateComponent } from '../musics/musics-create/musics.component';
 import { MusicsSelectComponent } from '../musics/musics-select/musics-select.component';
 import { SettingsProjectionComponent } from '../settings/settings-projection/settings-projection.component';
+import { BibleComponent } from '../bible/bible.component';
 
-import { FileService } from '../../services/file-lst.service';
+import { FileService } from '../../services/files/file-lst.service';
 
 
 @Component({
@@ -42,6 +43,12 @@ export class NavbarComponent implements OnInit {
     this.modalService
       .open(SettingsProjectionComponent, { size: 'lg', centered: true })
   }
+
+  showBibleDialog() {
+    this.modalService
+      .open(BibleComponent, { size: 'lg', centered: true })
+  }
+
 
   close() {
     remote.getCurrentWindow().close();

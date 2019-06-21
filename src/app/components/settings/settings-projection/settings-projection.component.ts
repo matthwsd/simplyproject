@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
-import { ProjectorService } from '../../../services/projector.service';
+import { ProjectorService } from '../../../services/projector/projector.service';
 import { ipcRenderer } from 'electron';
 
-import { SettingsJSONService } from '../../../services/settings-json.service';
+import { SettingsJSONService } from '../../../services/settings/settings-json.service';
 import { ToastrService } from '../../../toastr/toastr.service';
 
 @Component({

@@ -1,6 +1,6 @@
 @import ../../../../assets/colors
+@import ../../../../assets/modal
 @import ../../../../assets/fonts/fonts
-@import ../modal
 
 input.search
     margin-right: 1vw
@@ -15,7 +15,7 @@ input.search
 .music-list
     display: inline-block
     height: 30vh
-    width: 20vw
+    width: 50%
     list-style: none
     overflow-y: auto
     overflow-x: none
@@ -23,18 +23,18 @@ input.search
     margin: 0
    
 .music-list .music-item
-    width: 20vw
+    width: 100%
     padding: .5rem
     &:hover
         cursor: pointer
         background-color: $dark-purple
 
 .music-list .music-item .title
-    width: 20vw
+    width: 100%
     font-size: calc(100vw/100)
 
 .music-list .music-item .artist
-    width: 20vw
+    width: 100%
     font-size: calc(100vw/110)
     font-family: 'Montserrat Light', sans-serif
 

@@ -2,18 +2,18 @@ import { Component, OnInit, ApplicationRef, ViewChild, ViewContainerRef } from '
 import { Router, ActivatedRoute } from "@angular/router";
 import { IFile } from "../../interfaces/filesLst";
 
-import { ProjectorService } from '../../services/projector.service';
-import { SettingsJSONService } from '../../services/settings-json.service';
+import { ProjectorService } from '../../services/projector/projector.service';
+import { SettingsJSONService } from '../../services/settings/settings-json.service';
 
 import { remote, screen, ipcRenderer } from 'electron';
 
 import { ISlide } from '../../interfaces/slide';
 
-import { FileService } from '../../services/file-lst.service';
+import { FileService } from '../../services/files/file-lst.service';
 
 import { ToastrService } from '../../toastr/toastr.service';
 
-import { Shortcuts } from '../../services/shortcuts.service';
+import { Shortcuts } from '../../services/shortcuts/shortcuts.service';
 
 import * as path from 'path';
 import * as url from 'url';

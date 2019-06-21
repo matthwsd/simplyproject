@@ -1,0 +1,98 @@
+@import "../../../assets/_modal.sass";
+@import "../../../assets/colors";
+
+.bible {
+  position: relative;
+  display: inline-block;
+  width: 50%;
+  min-height: auto;
+  padding: .5rem;
+  vertical-align: top;
+}
+
+.bible .title {
+  font-size: 1.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+.bible .item {
+  width: 100%;
+  height: auto;
+  font-size: 1.2rem;
+  font-weight: 200;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0.2rem;
+  &:hover {
+    background: $dark-purple;
+    text-align: center;
+  }
+  &.active {
+    background: $dark-purple;
+    text-align: center;
+  }
+}
+
+.selection {
+  position: relative;
+  display: inline-block;
+  height: auto;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+
+.selection .title {
+  font-size: 1.5rem;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.selection .results {
+  padding-top: 1rem;
+  display: block;
+  width: 100%;
+  height: 20vh;
+  max-height: 20vh;
+  overflow: auto;
+}
+
+.selection .results .item {
+  height: auto;
+  width: 100%;
+  border-bottom: 0.05rem solid $dark-purple;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: $dark-purple;
+    cursor: pointer;
+  }
+
+  & .location {
+    font-weight: 200;
+    padding: 0.3rem;
+  }
+
+  & .text {
+    font-size: 0.8rem;
+    font-weight: 300;
+    padding: 0.5rem;
+  }
+
+  &:last-child {
+    border: 0;
+  }
+}
+
+input.form-control {
+  background: transparent;
+  color: white;
+  border: 0.05rem solid $dark-purple;
+  border-radius: 0;
+  &::placeholder {
+    color: #474747;
+  }
+}

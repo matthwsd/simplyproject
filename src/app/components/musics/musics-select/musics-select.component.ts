@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 
-import { MusicsService } from '../../../services/musics.service';
-import { PresentationService } from '../../../services/presentation.service';
+import { MusicsService } from '../../../services/music/musics.service';
+import { PresentationService } from '../../../services/presentation/presentation.service';
 
 import { IPresentation } from '../../../interfaces/presentation';
 import { IMusic } from '../../../interfaces/music';

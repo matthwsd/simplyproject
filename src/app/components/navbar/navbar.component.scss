@@ -45,12 +45,14 @@
     height: auto;
     width: 100%;
     padding: 0.5rem;
+
     &:hover {
       background: $dark-purple;
     }
 
     & .short {
       float: right;
+      display: block;
       font-size: 0.7rem;
       color: #d4d4d4;
       height: 100%;
