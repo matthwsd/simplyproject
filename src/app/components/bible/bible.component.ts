@@ -39,7 +39,7 @@ export class BibleComponent implements OnInit {
   bibleSearch(search: string) {
     this.results = new Array();
     let matchLivro = search.match(/(([0-9]\s[a-zA-Z]{1,})|([0-9][a-zA-Z]{1,}))|([a-zA-Z]){1,}/g);
-    let matchReferencia = search.match(/([0-9]{1,}\:[0-9]{1,}\-[0-9]{1,}\,[0-9\-\,]{1,})|([0-9]{1,}\:[0-9\,]{1,}[0-9]{1,}\-[0-9\-\,]{1,})|([0-9]{1,}\:[0-9]{1,}\-[0-9]{1,})|[0-9\:]{1,}[0-9\,]{1,}|([0-9]{1,}\:[0-9]{1,})|[0-9]{1,}/g)
+    let matchReferencia = search.replace(/(([0-9]\s[a-zA-Z]{1,})|([0-9][a-zA-Z]{1,}))|([a-zA-Z]){1,}/g, "").match(/([0-9]{1,}\:[0-9]{1,}\-[0-9]{1,}\,[0-9\-\,]{1,})|([0-9]{1,}\:[0-9\,]{1,}[0-9]{1,}\-[0-9\-\,]{1,})|([0-9]{1,}\:[0-9]{1,}\-[0-9]{1,})|[0-9\:]{1,}[0-9\,]{1,}|([0-9]{1,}\:[0-9]{1,})|[0-9]{1,}/g)
     this.livro = matchLivro ? matchLivro[0] : "";
     this.referencia = matchReferencia ? matchReferencia[0] : "";
     if (this.livro && this.referencia) {
@@ -53,7 +53,7 @@ export class BibleComponent implements OnInit {
     var livroR = this.selectedScripture.find((b) => { return this.accentFold(b.$.n.toLowerCase()) == this.accentFold(book) });
     var capR = livroR.c[parseInt(capitulo) - 1];
 
-    if (versiculos.indexOf("-") != -1 || versiculos.indexOf(",") != -1) {
+    if (versiculos && (versiculos.indexOf("-") != -1 || versiculos.indexOf(",") != -1)) {
       let sep = versiculos.match(/[0-9\-]{1,}|[0-9]{1,}/g)
       sep.forEach((_) => {
 
@@ -89,12 +89,20 @@ export class BibleComponent implements OnInit {
 
       })
 
-    } else {
+    } else if (versiculos) {
       let refR = capR.v[parseInt(versiculos) - 1];
       this.results.push({
         text: refR._,
         ref: `${capR.$.n}:${refR.$.n}`,
         book: livroR.$.n
+      })
+    } else {
+      capR.v.forEach((_v)=>{
+        this.results.push({
+          text: _v._,
+          ref: `${capR.$.n}:${_v.$.n}`,
+          book: livroR.$.n
+        })
       })
     }
 
