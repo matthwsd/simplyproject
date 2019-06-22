@@ -1,0 +1,28 @@
+@import "../../../assets/colors";
+
+.help {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0.5rem;
+  background: transparent;
+}
+
+.help .topic {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  border-bottom: 0.05rem solid $dark-purple;
+  animation: all 0.2s ease;
+  &:last-child {
+    border: 0;
+  }
+  &:hover {
+    background: $dark-purple;
+  }
+}
+
+.help .topic .explanation {
+  display: block;
+}

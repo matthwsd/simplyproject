@@ -8,6 +8,7 @@ import { MusicCreateComponent } from '../../components/musics/musics-create/musi
 import { MusicsSelectComponent } from '../../components/musics/musics-select/musics-select.component';
 import { SettingsProjectionComponent } from '../../components/settings/settings-projection/settings-projection.component';
 import { BibleComponent } from '../../components/bible/bible.component';
+import { HelpComponent } from '../../components/help/help.component';
 
 import { remote } from 'electron';
 
@@ -75,7 +76,9 @@ export class Shortcuts {
 
   private secret() {
     Mousetrap.bind('?', () => {
-      alert("A ajuda ainda está sendo construída. =)")
+      this.modal
+        .open(HelpComponent, { size: 'lg', centered: true })
+      this.appref.tick();
     })
 
     Mousetrap.bind('d e v o p e n c o n s o l e', () => {

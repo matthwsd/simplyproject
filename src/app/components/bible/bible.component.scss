@@ -6,7 +6,7 @@
   display: inline-block;
   width: 50%;
   min-height: auto;
-  padding: .5rem;
+  padding: 0.5rem;
   vertical-align: top;
 }
 
@@ -66,6 +66,11 @@
   border-bottom: 0.05rem solid $dark-purple;
   transition: all 0.2s ease;
 
+  &.selected{
+    background: $dark-purple;
+    cursor: pointer;
+  }
+
   &:hover {
     background: $dark-purple;
     cursor: pointer;
@@ -84,6 +89,23 @@
 
   &:last-child {
     border: 0;
+  }
+}
+
+.selection .options {
+  display: table;
+  width: 100%;
+  height: auto;
+  & .opt {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all .2s ease;
+    &:hover {
+      background: $dark-purple;
+    }
   }
 }
 

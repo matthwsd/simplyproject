@@ -22,16 +22,23 @@
     <div class="book">
       <input type="text" class="form-control" placeholder="A sintaxe de procura" [(ngModel)]="search"
         (keydown.enter)="bibleSearch(search)">
-      <small>Sintaxe = livro c:v | livro c:v1,v2 | livro c:v1-v2,v3</small>
     </div>
     <div class="results" *ngIf="results.length > 0 ">
-      <div class="item" *ngFor="let result of results">
+      <div class="item" *ngFor="let result of results; index as i" [ngClass]="{'selected': i == resultSelected}">
         <div class="location">
           {{result.book}} {{result.ref}}
         </div>
         <div class="text">
           {{result.text}}
         </div>
+      </div>
+    </div>
+    <div class="options" *ngIf="results.length > 0 ">
+      <div class="opt">
+        Adc. Apresentação
+      </div>
+      <div class="opt">
+        Ao Vivo
       </div>
     </div>
   </div>
