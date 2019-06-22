@@ -20,71 +20,17 @@
       Livro
     </div>
     <div class="book">
-      <input type="text" class="form-control" placeholder="Digite o livro ou sintaxe de procura" [(ngModel)]="search"
-        (input)="bibleSearch(search)">
+      <input type="text" class="form-control" placeholder="A sintaxe de procura" [(ngModel)]="search"
+        (keydown.enter)="bibleSearch(search)">
+      <small>Sintaxe = livro c:v | livro c:v1,v2 | livro c:v1-v2,v3</small>
     </div>
-    <div class="results" *ngIf="showResults">
-      <div class="item">
+    <div class="results" *ngIf="results.length > 0 ">
+      <div class="item" *ngFor="let result of results">
         <div class="location">
-          João 3:16
+          {{result.book}} {{result.ref}}
         </div>
         <div class="text">
-          Porque Deus amou o mundo de tal maneira que deu seu Filho unigênito para todo aquele que nele crê não
-          pereça, mas tenha a vida eterna.
-        </div>
-      </div>
-      <div class="item">
-        <div class="location">
-          João 3:16
-        </div>
-        <div class="text">
-          Porque Deus amou o mundo de tal maneira que deu seu Filho unigênito para todo aquele que nele crê não
-          pereça, mas tenha a vida eterna.
-        </div>
-      </div>
-      <div class="item">
-        <div class="location">
-          João 3:16
-        </div>
-        <div class="text">
-          Porque Deus amou o mundo de tal maneira que deu seu Filho unigênito para todo aquele que nele crê não
-          pereça, mas tenha a vida eterna.
-        </div>
-      </div>
-      <div class="item">
-        <div class="location">
-          João 3:16
-        </div>
-        <div class="text">
-          Porque Deus amou o mundo de tal maneira que deu seu Filho unigênito para todo aquele que nele crê não
-          pereça, mas tenha a vida eterna.
-        </div>
-      </div>
-      <div class="item">
-        <div class="location">
-          João 3:16
-        </div>
-        <div class="text">
-          Porque Deus amou o mundo de tal maneira que deu seu Filho unigênito para todo aquele que nele crê não
-          pereça, mas tenha a vida eterna.
-        </div>
-      </div>
-      <div class="item">
-        <div class="location">
-          João 3:16
-        </div>
-        <div class="text">
-          Porque Deus amou o mundo de tal maneira que deu seu Filho unigênito para todo aquele que nele crê não
-          pereça, mas tenha a vida eterna.
-        </div>
-      </div>
-      <div class="item">
-        <div class="location">
-          João 3:16
-        </div>
-        <div class="text">
-          Porque Deus amou o mundo de tal maneira que deu seu Filho unigênito para todo aquele que nele crê não
-          pereça, mas tenha a vida eterna.
+          {{result.text}}
         </div>
       </div>
     </div>

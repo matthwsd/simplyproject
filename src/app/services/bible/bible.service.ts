@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BibleJson, IBible } from './bibleJSON';
+import { BibleJson } from './bibleJSON';
+import { IBible } from '../../interfaces/bible';
+
 @Injectable({
   providedIn: 'root'
 })

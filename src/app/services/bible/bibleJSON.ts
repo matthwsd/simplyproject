@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { JsonFile } from '../json-file';
-
+import { IBible } from '../../interfaces/bible';
 import * as fs from 'fs';
 
 @Injectable({
@@ -28,26 +28,3 @@ export class BibleJson extends JsonFile {
 
 }
 
-export interface IBible {
-    $: {
-        id: string;
-        n: string;
-    };
-
-    c: IBibleChapter[];
-
-}
-
-interface IBibleChapter {
-    $: {
-        n: string | number
-    };
-    v: IBibleText[]
-}
-
-interface IBibleText {
-    $: {
-        n: string | number
-    }
-    _: string;
-}
