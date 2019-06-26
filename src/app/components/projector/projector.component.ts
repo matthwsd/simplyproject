@@ -1,4 +1,4 @@
-import { Component, OnInit, ApplicationRef, ViewChild, setTestabilityGetter } from '@angular/core';
+import { Component, OnInit, ApplicationRef, ViewChild } from '@angular/core';
 import { ProjectorService } from '../../services/projector/projector.service';
 import { SettingsJSONService } from '../../services/settings/settings-json.service';
 import { FileService } from '../../services/files/file-lst.service';

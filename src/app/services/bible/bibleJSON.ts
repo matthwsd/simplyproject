@@ -12,6 +12,7 @@ export class BibleJson extends JsonFile {
 
     getBibles(): Array<string> {
         var Bibles: Array<string> = new Array();
+        console.log(BibleJson.BIBLES);
         fs.readdirSync(BibleJson.BIBLES)
             .forEach((bible) => {
                 if (bible.indexOf('json') == -1)

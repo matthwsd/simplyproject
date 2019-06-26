@@ -34,6 +34,7 @@ import { ToastrComponent } from './toastr/toastr.component';
 import { LiveComponent } from './components/live/live.component';
 import { BibleComponent } from './components/bible/bible.component';
 import { HelpComponent } from './components/help/help.component';
+import { PreviewComponent } from './components/preview/preview.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -57,7 +58,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ToastrComponent,
     LiveComponent,
     BibleComponent,
-    HelpComponent
+    HelpComponent,
+    PreviewComponent
   ],
   imports: [
     BrowserModule,
