@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ipcRenderer } from 'electron';
-
+import { IFile } from '../../interfaces/filesLst';
 @Injectable({
   providedIn: 'root'
 })
@@ -38,18 +38,18 @@ export class PreviewService {
 
   /**
    * Set a new Video SRC
-   * @param path path for a file
+   * @param file
    */
-  public setVideoSrc(path: string) {
-    ipcRenderer.send("preview-video-file", path);
+  public setVideoSrc(file: IFile) {
+    ipcRenderer.send("preview-video-file", file);
   }
 
   /**
    * Set a new Image SRC
-   * @param path path for a file
+   * @param file
    */
-  public setImageSrc(path: string) {
-    ipcRenderer.send("preview-image-file", path);
+  public setImageSrc(file: IFile) {
+    ipcRenderer.send("preview-image-file", file);
   }
 
   constructor() { }

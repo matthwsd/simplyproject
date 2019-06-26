@@ -57,14 +57,14 @@ export class PreviewComponent implements OnInit {
       this.showVideo = true;
       this.zone.tick();
 
-      this.projectorService.setVideoSRC(this.currentMedia);
+      this.projectorService.setVideoSRC(fileSelected);
 
     } else {
       this.showVideo = false;
       this.showImage = true;
       this.zone.tick();
 
-      this.projectorService.setImageSrc(this.currentMedia);
+      this.projectorService.setImageSrc(fileSelected);
     }
 
   }
@@ -86,7 +86,7 @@ export class PreviewComponent implements OnInit {
 
       this.zone.tick();
 
-      this.projectorService.setVideoSRC(this.currentMedia);
+      this.projectorService.setVideoSRC(fileSelected);
       this.togglePlay();
 
     } else {
@@ -94,7 +94,7 @@ export class PreviewComponent implements OnInit {
       this.showImage = true;
       this.zone.tick();
 
-      this.projectorService.setImageSrc(this.currentMedia);
+      this.projectorService.setImageSrc(fileSelected);
     }
 
 
@@ -111,7 +111,7 @@ export class PreviewComponent implements OnInit {
       this.showVideo = true;
 
       this.zone.tick();
-      this.projectorService.setVideoSRC(this.currentMedia);
+      this.projectorService.setVideoSRC(fileSelected);
       this.togglePlay();
       if (!this.isLooping)
         this.toggleLoop();
@@ -120,7 +120,7 @@ export class PreviewComponent implements OnInit {
       this.showImage = true;
       this.zone.tick();
 
-      this.projectorService.setImageSrc(this.currentMedia);
+      this.projectorService.setImageSrc(fileSelected);
     }
 
 
@@ -269,19 +269,17 @@ export class PreviewComponent implements OnInit {
   private videoListeners() {
 
     remote.ipcMain.on("preview-video-file", (event, arg) => {
-      this.API.src = arg;  
-      this.zone.tick();
+      this.onFileSelect(arg);
     })
 
     remote.ipcMain.on("preview-video-file-background", (event, arg) => {
-      this.API.src = arg;  
+      this.onFileBackgroundSelect(arg);
     })
   }
 
   private imageListeners() {
     remote.ipcMain.on("preview-image-file", (event, arg) => {
-      this.IMG.src = arg;
-      this.zone.tick();
+      this.onFileSelect(arg);
     })
   }
 

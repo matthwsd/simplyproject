@@ -3,6 +3,7 @@ import { ProjectorService } from '../../services/projector/projector.service';
 import { SettingsJSONService } from '../../services/settings/settings-json.service';
 import { FileService } from '../../services/files/file-lst.service';
 import { remote } from 'electron';
+import { IFile } from '../../interfaces/filesLst';
 
 @Component({
   selector: 'app-projector',
@@ -44,15 +45,15 @@ export class ProjectorComponent implements OnInit {
 
   private videoListeners() {
 
-    remote.ipcMain.on("video-file", (event, arg) => {
+    remote.ipcMain.on("video-file", (event, arg: IFile) => {
       this.showVideo();
-      this.currentMedia = arg;
+      this.currentMedia = `file://${arg.path}`;
       this.zone.tick();
     })
 
-    remote.ipcMain.on("video-file-background", (event, arg) => {
+    remote.ipcMain.on("video-file-background", (event, arg: IFile) => {
       this.showVideo();
-      this.currentMedia = arg;
+      this.currentMedia = `file://${arg.path}`;
       this.zone.tick();
     })
 
@@ -96,9 +97,9 @@ export class ProjectorComponent implements OnInit {
   }
 
   private imageListeners() {
-    remote.ipcMain.on("image-file", (event, arg) => {
+    remote.ipcMain.on("image-file", (event, arg: IFile) => {
       this.showImage();
-      this.currentMedia = arg;
+      this.currentMedia = `file://${arg.path}`;
       this.zone.tick();
     })
   }

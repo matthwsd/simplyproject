@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ipcRenderer } from 'electron';
-
+import { IFile } from '../../interfaces/filesLst';
 
 @Injectable({
   providedIn: 'root'
@@ -69,18 +69,18 @@ export class ProjectorService {
 
   /**
    * Set a new Video SRC
-   * @param path path for a file
+   * @param file 
    */
-  public setVideoSRC(path: string) {
-    ipcRenderer.send("video-file", path);
+  public setVideoSRC(file: IFile) {
+    ipcRenderer.send("video-file", file);
   }
 
   /**
    * Set a new Image SRC
-   * @param path path for a file
+   * @param file
    */
-  public setImageSrc(path: string) {
-    ipcRenderer.send("image-file", path);
+  public setImageSrc(file: IFile) {
+    ipcRenderer.send("image-file", file);
   }
 
   /**
