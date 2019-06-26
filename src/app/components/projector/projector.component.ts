@@ -176,6 +176,7 @@ export class ProjectorComponent implements OnInit {
     }
 
     this.loadSettings();
+    console.log("Projetor foi iniciado");
   }
 
 }

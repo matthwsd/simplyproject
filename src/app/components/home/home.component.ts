@@ -1,20 +1,16 @@
-import { Component, OnInit, ApplicationRef, ViewChild, ViewContainerRef } from '@angular/core';
-import { Router, ActivatedRoute } from "@angular/router";
+import { Component, OnInit, ViewChild} from '@angular/core';
+import { Router } from "@angular/router";
 import { IFile } from "../../interfaces/filesLst";
-
 import { ProjectorService } from '../../services/projector/projector.service';
-
-import { remote, screen, ipcRenderer } from 'electron';
-
+import { remote, screen } from 'electron';
 import { ISlide } from '../../interfaces/slide';
-
 import { Shortcuts } from '../../services/shortcuts/shortcuts.service';
+import { PreviewService } from '../../services/preview/preview.service';
+import { SettingsJSONService } from '../../services/settings/settings-json.service';
 
 import * as path from 'path';
 import * as url from 'url';
-
-
-const args = process.argv.slice(1);
+import { FileService } from '../../services/files/file-lst.service';
 
 
 @Component({
@@ -120,7 +116,10 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private projectorService: ProjectorService,
-    private shortcuts: Shortcuts
+    private shortcuts: Shortcuts,
+    private settings: SettingsJSONService,
+    private files: FileService,
+    private preview: PreviewService
   ) {  }
 
 
@@ -133,6 +132,17 @@ export class HomeComponent implements OnInit {
       this.router.navigateByUrl("/projector");
 
     this.shortcuts.load();
+    
+    if(this.settings.get(SettingsJSONService.SETTINGS.PROJECAO.INICIALIZAR.LOGO)){
+      var logoPath = this.files.getPathLogo();
+      if(logoPath){
+       setTimeout(()=>{
+        this.preview.setImageSrc(logoPath);
+        this.projectorService.setImageSrc(logoPath);
+       }, 4000)
+      }
+    }
+
   }
 
 }

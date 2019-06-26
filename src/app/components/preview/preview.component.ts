@@ -269,17 +269,19 @@ export class PreviewComponent implements OnInit {
   private videoListeners() {
 
     remote.ipcMain.on("preview-video-file", (event, arg) => {
-      this.onFileSelect(arg);
+      this.API.src = arg;  
+      this.zone.tick();
     })
 
     remote.ipcMain.on("preview-video-file-background", (event, arg) => {
-      this.onFileBackgroundSelect(arg);
+      this.API.src = arg;  
     })
   }
 
   private imageListeners() {
     remote.ipcMain.on("preview-image-file", (event, arg) => {
-      this.onFileSelect(arg);
+      this.IMG.src = arg;
+      this.zone.tick();
     })
   }
 
@@ -309,11 +311,14 @@ export class PreviewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.API = this.videoPlayer.nativeElement;
+    this.IMG = this.imageShow.nativeElement;
     this.loadDefault();
     this.setEventsPlayer();
     this.videoListeners();
     this.imageListeners();
     this.extraListeners();
+    console.log("Preview foi iniciado");
   }
 
 }
