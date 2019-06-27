@@ -15,7 +15,7 @@ export class BibleJson extends JsonFile {
         console.log(BibleJson.BIBLES);
         fs.readdirSync(BibleJson.BIBLES)
             .forEach((bible) => {
-                if (bible.indexOf('json') == -1)
+                if (bible.indexOf('.xml') != -1)
                     Bibles.push(bible.replace(".xml", ""))
             })
 

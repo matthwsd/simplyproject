@@ -40,8 +40,19 @@ export class PreviewService {
    * Set a new Video SRC
    * @param file
    */
-  public setVideoSrc(file: IFile) {
-    ipcRenderer.send("preview-video-file", file);
+  public setVideoSrc(file: IFile, play?: boolean) {
+    if (play)
+      ipcRenderer.send("preview-video-file-play", file);
+    else
+      ipcRenderer.send("preview-video-file", file);
+  }
+
+  /**
+   * Set a new video as background (don't clear the text, if they're showing)
+   * @param file 
+   */
+  public setVideoSrcBackground(file: IFile) {
+    ipcRenderer.send("preview-video-file-background", file);
   }
 
   /**

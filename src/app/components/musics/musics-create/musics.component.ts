@@ -20,7 +20,7 @@ export class MusicCreateComponent implements OnInit {
 
 
   // Save a New Music
-  save() {
+  async save() {
     if (this.title && this.artist && this.lyric) {
 
       let i = new Date().getMilliseconds();

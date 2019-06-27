@@ -18,11 +18,33 @@
   &:last-child {
     border: 0;
   }
-  &:hover {
-    background: $dark-purple;
-  }
 }
 
 .help .topic .explanation {
+  display: none;
+}
+
+.help .topic:hover .explanation {
   display: block;
+  width: 100%;
+  height: auto;
+  padding: 0.5rem;
+}
+
+.help .topic .explanation .sub {
+  border-bottom: 1px solid white;
+  &:last-child {
+    border: 0;
+  }
+  & .title {
+    font-size: 1rem;
+    &::before {
+      content: "·";
+      font-size: 1rem;
+    }
+  }
+
+  & .explanation {
+    font-size: 0.8rem;
+  }
 }

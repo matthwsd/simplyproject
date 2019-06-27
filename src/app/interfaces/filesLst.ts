@@ -6,7 +6,7 @@ export class IFile {
     public title: string;
     public path: string;
     public extension: string;
-    public type: string;
+    public type: "VIDEO" | "IMAGE"; 
 
     public static IMAGES: String[] = [
         'png', 'jpg'
@@ -32,13 +32,13 @@ export class IFile {
         return ext[ext.length - 1];
     }
 
-    public static getType(extension: string): string {
+    public static getType(extension: string): 'VIDEO' | 'IMAGE' | null{
 
-        let type = "";
+        let type: 'VIDEO' | 'IMAGE';
 
         IFile.IMAGES.forEach((img) => {
             if (img == extension) {
-                type = IFile.TYPE.IMAGE;
+                type = 'IMAGE';
                 return false;
             }
         })
@@ -46,13 +46,13 @@ export class IFile {
         if (!type) {
             IFile.VIDEOS.forEach((vid) => {
                 if (vid == extension) {
-                    type = IFile.TYPE.VIDEO;
+                    type = 'VIDEO';
                     return false;
                 }
             })
         }
 
-        return type ? type : 'unknow';
+        return type ? type : null;
     }
 
     constructor(path: string){

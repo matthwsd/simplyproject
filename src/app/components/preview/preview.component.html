@@ -47,7 +47,7 @@
   </div>
 </div>
 
-<div class="image" [ngClass]="{'no-show': showImage == false}">
+<div class="image" [ngClass]="{'no-show': !showImage || !currentMedia}">
   <img #imageShow class="image-show" [src]="currentMedia">
   <div class="overlay">
     <p>

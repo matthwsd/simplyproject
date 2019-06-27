@@ -275,6 +275,10 @@ export class PreviewComponent implements OnInit {
     remote.ipcMain.on("preview-video-file-background", (event, arg) => {
       this.onFileBackgroundSelect(arg);
     })
+
+    remote.ipcMain.on("preview-video-file-play", (event, arg) => {
+      this.onFileSelectPlay(arg);
+    })
   }
 
   private imageListeners() {
@@ -293,6 +297,7 @@ export class PreviewComponent implements OnInit {
     remote.ipcMain.on("preview-clear-all", () => {
       this.textToShow = "";
       this.detailToShow = "";
+      this.showImage = false;
       this.zone.tick();
     })
 

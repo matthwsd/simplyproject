@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
 })
 export class FileService {
   private static readonly APP = remote.app.getAppPath().replace(/\\/g, "/");
-  private static readonly DATA = FileService.APP.replace(/app.asar/g, "") + "/files";
+  private static readonly DATA = FileService.APP.replace(/app.asar/g, "") + "/data";
   public files: Subject<IFile> = new Subject();
   constructor() {
     if (!fs.existsSync(FileService.DATA))

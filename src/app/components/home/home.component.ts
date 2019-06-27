@@ -53,11 +53,14 @@ export class HomeComponent implements OnInit {
 
   //Função para mudar o SRC do player
   onFileSelectPlay(fileSelected: IFile) {
-
+    this.preview.setVideoSrc(fileSelected, true);
   }
 
   onFileBackgroundSelect(fileSelected: IFile) {
-
+    if (fileSelected.type == "IMAGE")
+      this.preview.setImageSrc(fileSelected);
+    else
+      this.preview.setVideoSrcBackground(fileSelected);
   }
 
   onSlideChange(slide: ISlide) {
@@ -65,21 +68,26 @@ export class HomeComponent implements OnInit {
     this.projector.setText(slide.text, slide.detail);
   }
 
-
   blackProjection() {
-
+    this.preview.setBlackScreen()
+    this.projector.setBlackScreen();
   }
 
   logoProjection() {
-
+    var logoPath = this.files.getPathLogo();
+    if (logoPath) {
+      this.preview.setImageSrc(new IFile(logoPath));
+    }
   }
 
   removeBackgroundProjection() {
-
+    this.preview.setBackgroundBlack()
+    this.projector.setBackgroundBlack();
   }
 
   clearPresentationProjection() {
-
+    this.preview.clearText()
+    this.projector.clearText();
   }
 
   private createProjector() {
@@ -94,7 +102,7 @@ export class HomeComponent implements OnInit {
       x: sc.x,
       y: sc.y,
       frame: false,
-      alwaysOnTop: false,
+      alwaysOnTop: snd ? true : false,
       fullscreen: true,
       webPreferences: {
         webSecurity: false
@@ -110,6 +118,7 @@ export class HomeComponent implements OnInit {
 
     projector.loadURL('http://localhost:4200/');
     projector.setMenu(null);
+    projector.webContents.openDevTools();
   }
 
   constructor(
@@ -123,7 +132,6 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
-
     if (remote.BrowserWindow.getAllWindows().length == 1)
       this.createProjector();
 
