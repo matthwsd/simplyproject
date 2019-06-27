@@ -1,6 +1,4 @@
-import { TrustedString } from "@angular/core/src/sanitization/bypass";
-
-export interface IBible {
+export class IBible {
     $: {
         id: string;
         n: string;
@@ -10,21 +8,21 @@ export interface IBible {
 
 }
 
-interface IBibleChapter {
+class IBibleChapter {
     $: {
         n: string | number
     };
     v: IBibleText[]
 }
 
-interface IBibleText {
+class IBibleText {
     $: {
         n: string | number
     }
     _: string;
 }
 
-export interface IBibleFetched {
+export class IBibleFetched {
     text: string;
     ref: string;
     book: string;

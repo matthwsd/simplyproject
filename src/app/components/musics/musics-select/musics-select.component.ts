@@ -22,7 +22,7 @@ export class MusicsSelectComponent implements OnInit {
   private allMusics: Array<IMusic>;
 
   addToPresentation() {
-    this.presentationService.presentation.next([new IPresentation(this.musicSelected)]);
+    this.presentationService.presentation.next([new IPresentation().getPresentationFromIMusic(this.musicSelected)]);
     this.toastr.toastr(`A música ${this.musicSelected.Title} foi adicionado à apresentação`, { Type: 'Success', Duration: 2000 })
   }
 

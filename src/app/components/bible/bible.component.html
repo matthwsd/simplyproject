@@ -24,7 +24,7 @@
         (keydown.enter)="bibleSearch(search)">
     </div>
     <div class="results" *ngIf="results.length > 0 ">
-      <div class="item" *ngFor="let result of results; index as i" [ngClass]="{'selected': i == resultSelected}">
+      <div class="item" *ngFor="let result of results; index as i" (click)="selectVerse(i)" [ngClass]="{'selected': i == resultSelected}">
         <div class="location">
           {{result.book}} {{result.ref}}
         </div>
@@ -34,11 +34,14 @@
       </div>
     </div>
     <div class="options" *ngIf="results.length > 0 ">
-      <div class="opt">
+      <div class="opt" (click)="addTo()">
         Adc. Apresentação
       </div>
-      <div class="opt">
+      <div class="opt" (click)="live()" *ngIf="!goingLive">
         Ao Vivo
+      </div>
+      <div class="opt" (click)="offLive()" *ngIf="goingLive">
+        Parar Transmissão
       </div>
     </div>
   </div>

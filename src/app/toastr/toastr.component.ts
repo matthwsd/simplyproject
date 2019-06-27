@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterContentInit, ComponentRef, Output, EventEmitter, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, Input, AfterContentInit, ComponentRef, Output, EventEmitter, ViewContainerRef, ViewChild, ɵConsole } from '@angular/core';
 
 @Component({
   selector: 'app-toastr',
@@ -7,6 +7,7 @@ import { Component, OnInit, Input, AfterContentInit, ComponentRef, Output, Event
 })
 export class ToastrComponent implements OnInit, AfterContentInit {
 
+  @ViewChild("me") me: any;
   /**
    * Type of Toast
    */
@@ -54,7 +55,7 @@ export class ToastrComponent implements OnInit, AfterContentInit {
   }
 
   ngOnInit() {
-
+    this.me.nativeElement.style.opacity = 1;
   }
 
   ngAfterContentInit() {

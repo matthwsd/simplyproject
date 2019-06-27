@@ -1,4 +1,4 @@
-<div class="toastr" [ngClass]="{'success': type == 'Success', 'error': type == 'Error', 'question': type == 'Question', 'info': type == 'Info' }">
+<div #me class="toastr" [ngClass]="{'success': type == 'Success', 'error': type == 'Error', 'question': type == 'Question', 'info': type == 'Info' }">
   <div class="toastr-body">
     {{message}}
     <button class="action" *ngIf="showAction" (click)="do()">{{actionMessage}}</button>

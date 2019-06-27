@@ -20,15 +20,15 @@ export class BibleService {
     return this.bibleJson.getScripture(version);
   }
 
-  bibleSearch(scripture: IBible[], search: string): IBibleFetched[] {
+  bibleSearch(scripture: IBible[], search: string): BibleSearchResult {
     let matchLivro = search.match(/(([0-9]\s[a-zA-Z]{1,})|([0-9][a-zA-Z]{1,}))|([a-zA-Z]){1,}/g);
     let matchReferencia = search.replace(/(([0-9]\s[a-zA-Z]{1,})|([0-9][a-zA-Z]{1,}))|([a-zA-Z]){1,}/g, "").match(/([0-9]{1,}\:[0-9]{1,}\-[0-9]{1,}\,[0-9\-\,]{1,})|([0-9]{1,}\:[0-9\,]{1,}[0-9]{1,}\-[0-9\-\,]{1,})|([0-9]{1,}\:[0-9]{1,}\-[0-9]{1,})|[0-9\:]{1,}[0-9\,]{1,}|([0-9]{1,}\:[0-9]{1,})|[0-9]{1,}/g)
     var book = matchLivro ? matchLivro[0] : "";
     var ref = matchReferencia ? matchReferencia[0] : "";
     if (book && ref) {
-      return this.fetchResult(scripture, book, ref);
+      return { result: this.fetchResult(scripture, book, ref), refSearched: ref, bookSearched: book };
     } else {
-      return null;
+      return { result: null, refSearched: null, bookSearched: null };
     }
   }
 
@@ -113,6 +113,12 @@ export class BibleService {
       }
     );
   }
+}
+
+interface BibleSearchResult {
+  result: IBibleFetched[];
+  bookSearched: string;
+  refSearched: string;
 }
 
 
