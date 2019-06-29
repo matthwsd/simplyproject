@@ -6,10 +6,11 @@ import { ipcRenderer } from 'electron';
 import { SettingsJSONService } from '../../../services/settings/settings-json.service';
 import { ToastrService } from '../../../toastr/toastr.service';
 
+
 @Component({
   selector: 'app-settings-projection',
   templateUrl: './settings-projection.component.html',
-  styleUrls: ['./settings-projection.component.sass']
+  styleUrls: ['./settings-projection.component.scss']
 })
 export class SettingsProjectionComponent implements OnInit {
 

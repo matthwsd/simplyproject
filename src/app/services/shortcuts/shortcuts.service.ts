@@ -28,6 +28,11 @@ export class Shortcuts {
     Mousetrap.bind('mod+f mod+o', () => {
       this.fileService.openDialog();
     })
+
+    Mousetrap.bind('mod+f mod+c', () => {
+      this.fileService.clear.next(null);
+      this.appref.tick();      
+    })
   }
 
   private musicShortcuts() {

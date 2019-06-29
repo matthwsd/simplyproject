@@ -43,11 +43,16 @@ export abstract class JsonFile {
             }
     }
 
-    protected writeFile(PATH: string, ToSAVE: any, error?) {
-        fs.writeFile(PATH, JSON.stringify(ToSAVE), (err) => {
-            if (err && error)
-                error(err);
-        });
+    protected writeFile(PATH: string, ToSAVE: any, error?, success?) {
+        try {
+            fs.writeFileSync(PATH, JSON.stringify(ToSAVE));
+            if (success)
+                success();
+        }
+        catch{
+            if (error)
+                error();
+        }
     }
 
     protected decodeFromFile<T>(PATH: string): any {

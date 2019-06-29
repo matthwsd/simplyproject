@@ -11,12 +11,13 @@ export class FileService {
   private static readonly APP = remote.app.getAppPath().replace(/\\/g, "/");
   private static readonly DATA = FileService.APP.replace(/app.asar/g, "") + "/data";
   public files: Subject<IFile> = new Subject();
+  public clear: Subject<any> = new Subject();
   constructor() {
     if (!fs.existsSync(FileService.DATA))
       fs.mkdirSync(FileService.DATA);
   }
 
-  public openDialog(){
+  public openDialog() {
     remote.dialog.showOpenDialog({
       properties: ['openFile', 'multiSelections'],
       filters: [
@@ -41,10 +42,7 @@ export class FileService {
    * @param path path of file which will be copied
    */
   private async copyFileToAppDir(path: string, fileName: string, fileExtension: string) {
-
-    fs.copyFile(path, `${FileService.DATA}/${fileName}.${fileExtension}`, (err) => {
-      if (err) alert(err.message);
-    })
+    fs.copyFileSync(path, `${FileService.DATA}/${fileName}.${fileExtension}`);
   }
 
   /**

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IMusic } from '../../interfaces/music';
 import { JsonFile } from '../json-file';
+import { ApplicationRef } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class MusicJSONService extends JsonFile {
 
   private MUSICSPATH = `${MusicJSONService.DATA}/musics.json`;
 
-  constructor() {
+  constructor(private appref: ApplicationRef) {
     super();
     this.exist(this.MUSICSPATH, true);
   }
@@ -28,6 +29,25 @@ export class MusicJSONService extends JsonFile {
     this.writeFile(this.MUSICSPATH, musics, () => {
       return false;
     })
+    return true;
+  }
+
+  // Update a Music to Music's Json
+  public update(toUpdate: IMusic, error?, success?): boolean {
+
+    let musics = this.get();
+    var indexToUpdate = null;
+    musics.forEach((_m, index) => {
+      if (_m.Id == toUpdate.Id) {
+        indexToUpdate = index;
+        return;
+      }
+    })
+
+    musics[indexToUpdate] = toUpdate;
+
+    this.writeFile(this.MUSICSPATH, musics, error, success);
+    this.appref.tick();
     return true;
   }
 

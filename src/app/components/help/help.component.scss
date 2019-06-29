@@ -4,6 +4,8 @@
   display: block;
   width: 100%;
   height: auto;
+  max-height: 60vh;
+  overflow: auto;
   padding: 0.5rem;
   background: transparent;
 }
@@ -12,6 +14,7 @@
   display: block;
   width: 100%;
   height: auto;
+  padding: 1rem;
   cursor: pointer;
   border-bottom: 0.05rem solid $dark-purple;
   animation: all 0.2s ease;
@@ -33,9 +36,11 @@
 
 .help .topic .explanation .sub {
   border-bottom: 1px solid white;
+  padding: 1rem;
   &:last-child {
     border: 0;
   }
+
   & .title {
     font-size: 1rem;
     &::before {
@@ -46,5 +51,10 @@
 
   & .explanation {
     font-size: 0.8rem;
+  }
+  & small{
+    font-size: .6rem;
+    font-style: italic;
+    line-height: 0;
   }
 }

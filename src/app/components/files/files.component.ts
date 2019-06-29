@@ -103,6 +103,9 @@ export class FilesComponent implements OnInit {
       this.files.push(_);
       this.zone.tick();
     })
+    this.filesService.clear.subscribe(() => {
+      this.files = [];
+    })
 
     window
       .addEventListener("click", () => {

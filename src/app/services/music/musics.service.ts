@@ -37,6 +37,13 @@ export class MusicsService {
   }
 
   /**
+ * Update music into Music's JSON
+ */
+  public update(toUpdate: IMusic, error?, success?): Boolean {
+    return this.musicJSON.update(toUpdate, error, success);
+  }
+
+  /**
  * Delete a new music to Music's JSON
  */
   public delete(toDelete: IMusic, callback?): Boolean {

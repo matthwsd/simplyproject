@@ -4,13 +4,10 @@ import { IFile } from "../../interfaces/filesLst";
 import { remote, screen } from 'electron';
 import { ISlide } from '../../interfaces/slide';
 import { Shortcuts } from '../../services/shortcuts/shortcuts.service';
-import { PreviewService } from '../../services/preview/preview.service';
-import { SettingsJSONService } from '../../services/settings/settings-json.service';
-import { ProjectorService } from '../../services/projector/projector.service';
+import { PreviewService, SettingsJSONService, ProjectorService, FileService } from '../../services';
 
 import * as path from 'path';
 import * as url from 'url';
-import { FileService } from '../../services/files/file-lst.service';
 
 
 @Component({
@@ -110,13 +107,13 @@ export class HomeComponent implements OnInit {
       title: "Simply - Projeção",
     })
 
-    projector.loadURL(url.format({
-      pathname: path.join(`${remote.app.getAppPath().replace(/\\/g, "/")}/dist/index.html`),
-      protocol: 'file:',
-      slashes: true
-    }));
+    // projector.loadURL(url.format({
+    //   pathname: path.join(`${remote.app.getAppPath().replace(/\\/g, "/")}/dist/index.html`),
+    //   protocol: 'file:',
+    //   slashes: true
+    // }));
 
-    // projector.loadURL('http://localhost:4200/');
+    projector.loadURL('http://localhost:4200/');
     projector.setMenu(null);
     // projector.webContents.openDevTools();
   }

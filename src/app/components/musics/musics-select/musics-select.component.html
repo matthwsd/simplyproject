@@ -21,7 +21,7 @@
   </ul>
 
   <div class="music-selected" *ngIf="musicSelected">
-    <textarea class="music-selected-lyric" cols="30" rows="10" [value]="musicSelected.Lyric">
+    <textarea class="music-selected-lyric" cols="30" rows="10" [(ngModel)]="musicSelected.Lyric">
         </textarea>
 
     <div class="music-control">
@@ -29,7 +29,7 @@
         <div class="control" (click)="addToPresentation()">
           Selecionar
         </div>
-        <div class="control">
+        <div class="control" (click)="saveMusic()">
           Salvar
         </div>
         <div class="control" (click)="deleteMusic()">

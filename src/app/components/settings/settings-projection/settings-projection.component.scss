@@ -1,0 +1,39 @@
+@import "../../../../assets/modal";
+@import "../check";
+@import "../../../../assets/colors";
+@import "../../../../assets/fonts/fonts";
+
+.form-control {
+  background: transparent;
+  color: $white;
+}
+
+
+select {
+  & option {
+    color: $grany;
+  }
+}
+
+.font-preview {
+  text-overflow: clip;
+  float: right;
+}
+
+small {
+  font-size: 0.6rem;
+}
+
+.shadow {
+  text-shadow: 5px 7px 10px #000;
+}
+
+.divider {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  height: 1px;
+  background-color: $dark-purple;
+}

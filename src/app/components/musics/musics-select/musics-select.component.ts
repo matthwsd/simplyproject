@@ -66,7 +66,18 @@ export class MusicsSelectComponent implements OnInit {
         this.musicSelected = null;
       }
     })
+  }
 
+  saveMusic() {
+    var error = () => {
+      this.toastr.toastr(`A Música ${this.musicSelected.Title} não pode ser salva`, { Type: 'Error', Duration: 3000 });
+    }
+
+    var success = () => {
+      this.toastr.toastr(`A Música ${this.musicSelected.Title} foi salva`, { Type: 'Success', Duration: 3000 });
+    }
+
+    this.musicsService.update(this.musicSelected, error, success)
   }
 
   close() {

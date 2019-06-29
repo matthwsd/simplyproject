@@ -15,7 +15,8 @@ export class SettingsJSONService extends JsonFile {
       FONT: {
         FAMILY: "Montserrat, sans-serif",
         SIZE: 84,
-        SHADOW: false
+        SHADOW: false,
+        COLOR: "#000000"
       },
       INICIALIZAR: {
         LOGO: false
@@ -28,7 +29,8 @@ export class SettingsJSONService extends JsonFile {
       FONT: {
         FAMILY: "PROJECAO.FONT.FAMILY",
         SIZE: "PROJECAO.FONT.SIZE",
-        SHADOW: "PROJECAO.FONT.SHADOW"
+        SHADOW: "PROJECAO.FONT.SHADOW",
+        COLOR: "PROJECAO.FONT.COLOR"
       },
       INICIALIZAR: {
         LOGO: "PROJECAO.INICIALIZAR.LOGO"
