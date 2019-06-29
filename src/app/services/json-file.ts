@@ -38,7 +38,7 @@ export abstract class JsonFile {
                 if (isDir)
                     fs.mkdirSync(PATH)
                 else
-                    this.writeFile(PATH, null)
+                    this.writeFile(PATH, [])
                 return true;
             }
     }

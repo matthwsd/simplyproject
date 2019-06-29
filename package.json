@@ -1,6 +1,6 @@
 {
   "name": "simply",
-  "version": "1.0.0a",
+  "version": "19.2706.2019a",
   "description": "Simply be awesome",
   "homepage": "http://",
   "author": {
@@ -41,6 +41,7 @@
     "@mdi/font": "^3.4.93",
     "@ng-bootstrap/ng-bootstrap": "^4.0.2",
     "JSONStream": "^1.3.5",
+    "a-color-picker": "^1.1.7",
     "animate.css": "^3.7.2",
     "bootstrap": "^4.2.1",
     "electron-settings": "^3.2.0",

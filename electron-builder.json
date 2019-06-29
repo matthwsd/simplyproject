@@ -1,6 +1,6 @@
 {
   "productName": "Simply",
-  "copyright": "Copyright © year ${author}",
+  "copyright": "Copyright © ${author}",
   "appId": "com.md.simply",
   "directories": {
     "output": "release/"
