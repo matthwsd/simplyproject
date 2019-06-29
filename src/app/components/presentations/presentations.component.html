@@ -2,7 +2,8 @@
   <span class="title">APRESENTAÇÃO</span>
   <ul class="presentation-list">
     <li *ngFor="let presentation of presentations | async; index as i" class="presentation-list-item"
-      (click)="selectPresentation(presentation)" (contextmenu)="contextPresentation(i, $event, presentation == presentationSelected)"
+      (click)="selectPresentation(presentation)"
+      (contextmenu)="contextPresentation(i, $event, presentation == presentationSelected)"
       [ngClass]='{selectedPresentation: presentation == presentationSelected}'>
       <span class="type">
         <i class="mdi mdi-file-music float-right"></i>
@@ -17,7 +18,7 @@
   <span class="title">AO VIVO</span>
   <div class="form-row live-list">
     <div *ngFor="let slide of presentationSelected.Slides; index as i" class="live-list-item"
-      [ngClass]="{'active': currentIndexSlide == i}" (click)="changeSlide(i)">
+      [ngClass]="{'active': currentIndexSlide == i}" (click)="changeSlide(i)" (contextmenu)="contextSlide(i, $event)">
       <p class="content">
         {{slide}}
       </p>
@@ -28,8 +29,8 @@
 </div>
 
 
-<div #contextPresentationMenu class="context" [ngClass]="{'no-show': showContextPresentationMenu === false}"
-  [style.top.px]="top" [style.left.px]="left">
+<div class="context" [ngClass]="{'no-show': showContextPresentationMenu == false}" [style.top.px]="top"
+  [style.left.px]="left">
   <ul>
     <li class="item-divider">
       <span>Apresentação</span>
@@ -39,6 +40,20 @@
     </li>
     <li class="item" (click)="removeAllPresentations()">
       <span>Limpar Lista</span>
+    </li>
+  </ul>
+</div>
+
+<div class="context" [ngClass]="{'no-show': showContextSlideMenu == false}" [style.top.px]="top" [style.left.px]="left">
+  <ul>
+    <li class="item-divider">
+      <span>Opções</span>
+    </li>
+    <li class="item" (click)="toUpperSlide()">
+      <span>Maiúsculo</span>
+    </li>
+    <li class="item" (click)="removeSlide()">
+      <span>Remover Slide</span>
     </li>
   </ul>
 </div>

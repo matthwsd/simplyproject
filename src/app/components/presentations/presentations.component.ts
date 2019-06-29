@@ -16,6 +16,9 @@ export class PresentationsComponent implements OnInit {
   showContextPresentationMenu: boolean = false;
   showingContextPresentationMenuFor: number;
 
+  showContextSlideMenu: boolean = false;
+  showingContextSlideMenuFor: number;
+
   presentations: Observable<IPresentation[]>;
   presentationSelected: IPresentation = null;
   currentIndexSlide: number = null;
@@ -32,6 +35,15 @@ export class PresentationsComponent implements OnInit {
     this.left = e.clientX + 4;
     this.showingContextPresentationMenuFor = i;
     this.isSelected = isSelected;
+    this.zone.tick();
+
+  }
+
+  contextSlide(i: number, e: any) {
+    this.showContextSlideMenu = true;
+    this.top = e.clientY + 4;
+    this.left = e.clientX + 4;
+    this.showingContextSlideMenuFor = i;
     this.zone.tick();
 
   }
@@ -64,6 +76,13 @@ export class PresentationsComponent implements OnInit {
     })
   }
 
+  toUpperSlide() {
+    this.presentationSelected.Slides[this.showingContextSlideMenuFor] = this.presentationSelected.Slides[this.showingContextSlideMenuFor].toUpperCase();
+  }
+  removeSlide() {
+    this.presentationSelected.Slides = this.presentationSelected.Slides.filter((v, i) => { return i !== this.showingContextSlideMenuFor });
+  }
+
   constructor(
     private zone: ApplicationRef,
     private presentationService: PresentationService
@@ -75,6 +94,7 @@ export class PresentationsComponent implements OnInit {
     window
       .addEventListener("click", () => {
         this.showContextPresentationMenu = false;
+        this.showContextSlideMenu = false;
       })
   }
 

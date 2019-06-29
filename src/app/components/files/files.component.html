@@ -52,5 +52,11 @@
     <li class="item" (click)="setAsLogo()" *ngIf="isContextFileMenuForImage">
       <span>Definir como logo</span>
     </li>
+    <li class="item-divider" *ngIf="!isContextFileMenuForImage">
+      <span>Vídeo</span>
+    </li>
+    <li class="item" (click)="setAsBack()" *ngIf="!isContextFileMenuForImage">
+      <span>Definir como fundo</span>
+    </li>
   </ul>
 </div>

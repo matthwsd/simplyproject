@@ -42,6 +42,9 @@ export class FileService {
    * @param path path of file which will be copied
    */
   private async copyFileToAppDir(path: string, fileName: string, fileExtension: string) {
+    var exist = fs.readdirSync(FileService.DATA).find((_) => { return _.indexOf(fileName) >= 0; });
+    if (exist)
+      fs.unlinkSync(`${FileService.DATA}/${exist}`);
     fs.copyFileSync(path, `${FileService.DATA}/${fileName}.${fileExtension}`);
   }
 
@@ -53,13 +56,20 @@ export class FileService {
   }
 
   /**
+ * Copy a file as back
+ */
+  public async copyFileAsBack(path: string, fileName: string, fileExtension: string) {
+    this.copyFileToAppDir(path, fileName, fileExtension);
+  }
+
+  /**
    * @returns logo path, if exist or null if doesn't exist
    */
   public getPathLogo() {
     if (fs.existsSync(`${FileService.DATA}`)) {
       let logo = fs.readdirSync(FileService.DATA).find((_) => { return _.indexOf("logo") >= 0; });
       if (logo)
-        return `${FileService.DATA}/${logo}`;
+        return `${FileService.DATA}/${logo}`.replace(/\//g,"\\");
       else
         return null;
     } else {
@@ -68,4 +78,18 @@ export class FileService {
   }
 
 
+  /**
+ * @returns back path, if exist or null if doesn't exist
+ */
+  public getPathBack() {
+    if (fs.existsSync(`${FileService.DATA}`)) {
+      let back = fs.readdirSync(FileService.DATA).find((_) => { return _.indexOf("back") >= 0; });
+      if (back)
+        return `${FileService.DATA}/${back}`.replace(/\//g,"\\");
+      else
+        return null;
+    } else {
+      return null;
+    }
+  }
 }

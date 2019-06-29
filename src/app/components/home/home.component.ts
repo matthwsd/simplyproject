@@ -42,6 +42,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('volume') volume: any;
   //Função para mudar o SRC do player
   onFileSelect(fileSelected: IFile) {
+    console.log(fileSelected);
     if (fileSelected.type == "VIDEO")
       this.preview.setVideoSrc(fileSelected);
     else
@@ -76,6 +77,15 @@ export class HomeComponent implements OnInit {
       this.preview.setImageSrc(new IFile(logoPath));
     }
   }
+
+  onBackSelectScreenProjection() {
+    var backPath = this.files.getPathBack();
+    if (backPath) {
+      var file = new IFile(backPath);
+      this.preview.setVideoSrc(file, true);
+    }
+  }
+
 
   removeBackgroundProjection() {
     this.preview.setBackgroundBlack()

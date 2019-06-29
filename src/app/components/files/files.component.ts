@@ -89,6 +89,17 @@ export class FilesComponent implements OnInit {
   }
 
 
+  /**
+   * Set selected video as default back
+   */
+  setAsBack() {
+    var f = this.files[this.showingContextFileMenuFor];
+    this.filesService.copyFileAsBack(f.path, "back", f.extension);
+    this.toastr.toastr("O video foi definido como fundo.", { Type: 'Success' });
+  }
+
+
+
   constructor(
     private filesService: FileService,
     private zone: ApplicationRef,

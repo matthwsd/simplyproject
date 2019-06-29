@@ -36,25 +36,18 @@
       </div>
 
     </div>
-  </div>
-  <div class="overlay">
-    <p>
-      {{textToShow}}
-    </p>
-    <span>
-      {{detailToShow}}
-    </span>
-  </div>
+  </div> 
+</div>
+<div class="image" [ngClass]="{'no-show': !showImage || !currentMedia}">
+  <img #imageShow class="image-show" [src]="currentMedia"> 
 </div>
 
-<div class="image" [ngClass]="{'no-show': !showImage || !currentMedia}">
-  <img #imageShow class="image-show" [src]="currentMedia">
-  <div class="overlay">
-    <p>
-      {{textToShow}}
-    </p>
-    <span>
-      {{detailToShow}}
-    </span>
-  </div>
+<div class="overlay block" *ngIf="!currentMedia"></div>
+<div class="overlay">
+  <p>
+    {{textToShow}}
+  </p>
+  <span>
+    {{detailToShow}}
+  </span>
 </div>

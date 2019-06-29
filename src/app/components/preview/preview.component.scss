@@ -2,3 +2,15 @@
 @import "./overlay.sass";
 @import "./slider.sass";
 @import "./video.sass";
+
+body {
+  top: 70vh;
+  left: 70vw;
+  bottom: 80vh;
+  height: 30vh;
+  max-height: 30vh;
+  width: 30vw;
+  max-width: 30vw;
+  position: absolute;
+  background-color: black;
+}

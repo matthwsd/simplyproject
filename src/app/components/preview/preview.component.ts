@@ -52,7 +52,7 @@ export class PreviewComponent implements OnInit {
     }
     this.API.currentTime = 0;
     this.currentMedia = `file://${fileSelected.path}`;
-    if (fileSelected.type == IFile.TYPE.VIDEO) {
+    if (fileSelected.type == 'VIDEO') {
       this.showImage = false;
       this.showVideo = true;
       this.zone.tick();
@@ -270,14 +270,17 @@ export class PreviewComponent implements OnInit {
 
     remote.ipcMain.on("preview-video-file", (event, arg) => {
       this.onFileSelect(arg);
+      console.log(arg);
     })
 
     remote.ipcMain.on("preview-video-file-background", (event, arg) => {
       this.onFileBackgroundSelect(arg);
+      console.log(arg);
     })
 
     remote.ipcMain.on("preview-video-file-play", (event, arg) => {
       this.onFileSelectPlay(arg);
+      console.log(arg);
     })
   }
 
@@ -295,9 +298,7 @@ export class PreviewComponent implements OnInit {
     })
 
     remote.ipcMain.on("preview-clear-all", () => {
-      this.textToShow = "";
-      this.detailToShow = "";
-      this.showImage = false;
+      this.blackProjection();
       this.zone.tick();
     })
 

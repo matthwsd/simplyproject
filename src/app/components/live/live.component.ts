@@ -9,6 +9,7 @@ export class LiveComponent implements OnInit {
   @Output("onBlackScreen") onBlackScreen: EventEmitter<null> = new EventEmitter();
   @Output("onClearScreen") onClearScreen: EventEmitter<null> = new EventEmitter();
   @Output("onLogoScreen") onLogoScreen: EventEmitter<null> = new EventEmitter();
+  @Output("onBackSelectScreen") onBackSelectScreen: EventEmitter<null> = new EventEmitter();
   @Output("onRemoveBackground") onRemoveBackground: EventEmitter<null> = new EventEmitter();
 
   constructor() { }
@@ -24,6 +25,11 @@ export class LiveComponent implements OnInit {
   logoScreen() {
     this.onLogoScreen.emit();
   }
+
+  backSelectScreen() {
+    this.onBackSelectScreen.emit();
+  }
+
 
   removeBackground() {
     this.onRemoveBackground.emit();

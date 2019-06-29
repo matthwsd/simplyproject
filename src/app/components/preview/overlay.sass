@@ -1,17 +1,33 @@
 .overlay
     position: absolute
     display: table
-    height: 100%
-    width: 100%
-    top: 0%
-    text-align: center
+    top: 70vh
+    left: 70vw
+    bottom: 80vh
+    height: 30vh
+    max-height: 30vh
+    width: 30vw
+    max-width: 30vw
     color: white
+    z-index: 2
+
+.overlay.block
+    top: 70vh
+    left: 70vw
+    bottom: 80vh
+    height: 30vh
+    max-height: 30vh
+    width: 30vw
+    max-width: 30vw
+    position: absolute
+    background-color: black
     z-index: 1
 
 .overlay > p
     position: relative
     display: table-cell
     vertical-align: middle
+    text-align: center
     white-space: pre-line
     height: 100%
     width: 100%

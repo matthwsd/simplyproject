@@ -1,11 +1,11 @@
-<app-navbar></app-navbar> 
+<app-navbar></app-navbar>
 <!-- teste -->
 <div class="home-container">
     <app-files (onFileSelect)="onFileSelect($event)" (onFileBackgroundSelect)="onFileBackgroundSelect($event)"
         (onFilePlay)="onFileSelectPlay($event)">
     </app-files>
     <app-presentations (onSlideChange)="onSlideChange($event)"></app-presentations>
-<!-- 
+    <!-- 
     <div class="video" [ngClass]="{'no-show': showVideo == false}">
         <video #videoPlayer class="video-player" [src]="currentMedia">
         </video>
@@ -73,5 +73,6 @@
     <app-preview></app-preview>
 
     <app-live (onBlackScreen)="blackProjection()" (onClearScreen)="clearPresentationProjection()"
-        (onLogoScreen)="logoProjection()" (onRemoveBackground)="removeBackgroundProjection()"></app-live>
+        (onLogoScreen)="logoProjection()" (onRemoveBackground)="removeBackgroundProjection()"
+        (onBackSelectScreen)="onBackSelectScreenProjection()"></app-live>
 </div>

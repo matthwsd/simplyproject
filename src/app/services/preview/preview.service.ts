@@ -52,6 +52,7 @@ export class PreviewService {
    * @param file 
    */
   public setVideoSrcBackground(file: IFile) {
+    console.log(file);
     ipcRenderer.send("preview-video-file-background", file);
   }
 
