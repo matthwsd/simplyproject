@@ -99,16 +99,15 @@ export class HomeComponent implements OnInit {
   private createProjector() {
     const BrowserWindow = remote.BrowserWindow;
 
-    let snd = screen.getAllDisplays().find((display) => { return display.bounds.x !== 0 && display.bounds.y !== 0 });
+    let snd = screen.getAllDisplays().find((display) => { return display.bounds.x !== 0 || display.bounds.y !== 0 });
     const sc = snd ? snd.workArea : screen.getPrimaryDisplay().workArea;
-
+    console.log(screen.getAllDisplays());
     let projector = new BrowserWindow({
       width: sc.width,
       height: sc.height,
       x: sc.x,
       y: sc.y,
       frame: false,
-      alwaysOnTop: snd ? true : false,
       fullscreen: true,
       webPreferences: {
         webSecurity: false
