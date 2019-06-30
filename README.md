@@ -1,2 +1,4 @@
-#Simply
-A Simply Media Presentation created by M.
+# Simply
+
+** A _Simply_ media presentation focusing in church **
+
