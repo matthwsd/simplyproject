@@ -61,7 +61,11 @@ export class SettingsJSONService extends JsonFile {
 
   get(SETTINGS: string): any {
     if (electronSettings.has(SETTINGS)) {
-      return electronSettings.get(SETTINGS);
+      try {
+        return electronSettings.get(SETTINGS);
+      } catch {
+        return this.fetchFromObject(SettingsJSONService.DEFAULT, SETTINGS);
+      }
     }
     else {
       return this.fetchFromObject(SettingsJSONService.DEFAULT, SETTINGS);

@@ -6,7 +6,7 @@ export class IFile {
     public title: string;
     public path: string;
     public extension: string;
-    public type: "VIDEO" | "IMAGE"; 
+    public type: "VIDEO" | "IMAGE";
 
     public static IMAGES: String[] = [
         'png', 'jpg'
@@ -32,7 +32,7 @@ export class IFile {
         return ext[ext.length - 1];
     }
 
-    public static getType(extension: string): 'VIDEO' | 'IMAGE' | null{
+    public static getType(extension: string): 'VIDEO' | 'IMAGE' | null {
 
         let type: 'VIDEO' | 'IMAGE';
 
@@ -55,10 +55,10 @@ export class IFile {
         return type ? type : null;
     }
 
-    constructor(path: string){
+    constructor(path: string) {
         this.title = IFile.getTitle(path);
         this.path = path;
         this.extension = IFile.getExtension(path);
-        this.title = IFile.getType(this.extension);
+        this.type = IFile.getType(this.extension);
     }
 }

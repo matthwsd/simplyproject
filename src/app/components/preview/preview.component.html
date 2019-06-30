@@ -1,4 +1,4 @@
-<div class="video" [ngClass]="{'no-show': showVideo == false}">
+<div class="video" [ngClass]="{'no-show': !showVideo}">
   <video #videoPlayer class="video-player" [src]="currentMedia">
   </video>
   <div class="video-controler" *ngIf="currentMedia">
@@ -38,7 +38,7 @@
     </div>
   </div> 
 </div>
-<div class="image" [ngClass]="{'no-show': !showImage || !currentMedia}">
+<div class="image" [ngClass]="{'no-show': !showImage}">
   <img #imageShow class="image-show" [src]="currentMedia"> 
 </div>
 

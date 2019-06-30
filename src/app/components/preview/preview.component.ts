@@ -50,7 +50,6 @@ export class PreviewComponent implements OnInit {
     if (this.isPlaying) {
       this.toggleStop()
     }
-    this.API.currentTime = 0;
     this.currentMedia = `file://${fileSelected.path}`;
     if (fileSelected.type == 'VIDEO') {
       this.showImage = false;
@@ -270,17 +269,17 @@ export class PreviewComponent implements OnInit {
 
     remote.ipcMain.on("preview-video-file", (event, arg) => {
       this.onFileSelect(arg);
-      console.log(arg);
+      console.log("preview-video-file", arg);
     })
 
     remote.ipcMain.on("preview-video-file-background", (event, arg) => {
       this.onFileBackgroundSelect(arg);
-      console.log(arg);
+      console.log("preview-video-file-background", arg);
     })
 
     remote.ipcMain.on("preview-video-file-play", (event, arg) => {
       this.onFileSelectPlay(arg);
-      console.log(arg);
+      console.log("preview-video-file-play", arg);
     })
   }
 
