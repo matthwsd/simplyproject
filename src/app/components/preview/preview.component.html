@@ -19,7 +19,7 @@
 
       <div class="col-5 time">
         <div class="slidecontainer">
-          <input #position type="range" min="0" max="100" [value]="currentProgress" step=".1" class="slider"
+          <input #position type="range" min="0" max="100" [value]="currentProgress" step=".025" class="slider"
             (input)="setPosition()">
         </div>
       </div>
@@ -30,7 +30,7 @@
 
       <div class="col-3 volume">
         <div class="slidecontainer">
-          <input #volume type="range" min="0" max="1" step=".1" [value]="currentVolume" class="slider"
+          <input #volume type="range" min="0" max="1" step=".05" [value]="currentVolume" class="slider"
             [ngClass]="{'slider-danger': API.muted}" (input)="setVolume()">
         </div>
       </div>

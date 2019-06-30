@@ -1,0 +1,45 @@
+// Arquivo de Importação da Montserrat
+
+@font-face {
+  font-family: "Montserrat", sans-serif;
+  src: local("./Montserrat-Regular.ttf") formt("truetype");
+}
+
+@font-face {
+  font-family: "Montserrat-Light", sans-serif;
+  src: local("./Montserrat-Light.ttf") formt("truetype");
+}
+
+@font-face {
+  font-family: "Montserrat-ExtraLight", sans-serif;
+  src: local("./Montserrat-ExtraLight.ttf") formt("truetype");
+}
+
+@font-face {
+  font-family: "Montserrat-SemiBold", sans-serif;
+  src: local("./Montserrat-SemiBold.ttf") formt("truetype");
+}
+
+@font-face {
+  font-family: "Montserrat-Bold", sans-serif;
+  src: local("./Montserrat-Bold.ttf") formt("truetype");
+}
+@font-face {
+  font-family: "Montserrat-Black", sans-serif;
+  src: local("./Montserrat-Black.ttf") formt("truetype");
+}
+.montserrat-Light {
+  font-family: "Montserrat Light", sans-serif;
+}
+.montserrat-ExtraLight {
+  font-family: "Montserrat ExtraLight", sans-serif;
+}
+.montserrat-SemiBold {
+  font-family: "Montserrat SemiBold", sans-serif;
+}
+.montserrat-Bold {
+  font-family: "Montserrat Bold", sans-serif;
+}
+.montserrat-Black {
+  font-family: "Montserrat Black", sans-serif;
+}

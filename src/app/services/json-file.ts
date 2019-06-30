@@ -33,12 +33,12 @@ export abstract class JsonFile {
             return true;
         else if (!fs.existsSync(PATH))
             if (!createIfNotExist)
-                return false
+                return false;
             else {
                 if (isDir)
-                    fs.mkdirSync(PATH)
+                    fs.mkdirSync(PATH);
                 else
-                    this.writeFile(PATH, [])
+                    this.writeFile(PATH, []);
                 return true;
             }
     }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, ApplicationRef} from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 
@@ -36,6 +36,7 @@ export class MusicCreateComponent implements OnInit {
         this.title = "";
         this.artist = "";
         this.lyric = "";
+        this.appref.tick();
       } else {
         this.toastr.toastr(`Aconteceu um erro, tente novamente.`,{ Type: 'Error', Duration: 3500});
       }
@@ -56,7 +57,8 @@ export class MusicCreateComponent implements OnInit {
     private activeModal: NgbActiveModal,
     private musicsService: MusicsService,
     private toastr: ToastrService,
-    private vcr: ViewContainerRef
+    private vcr: ViewContainerRef,
+    private appref: ApplicationRef
   ) {
     toastr.setRootViewContainerRef(vcr);
   }

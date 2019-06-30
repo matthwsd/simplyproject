@@ -108,8 +108,8 @@ export class PreviewComponent implements OnInit {
     if (fileSelected.type == IFile.TYPE.VIDEO) {
       this.showImage = false;
       this.showVideo = true;
-
       this.zone.tick();
+      this.toggleMute();
       this.projectorService.setVideoSRC(fileSelected);
       this.togglePlay();
       if (!this.isLooping)

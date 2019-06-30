@@ -42,7 +42,7 @@ export class IPresentation {
 
   public getPresentationFromIMusic(m: IMusic) {
     this.Title = m.Title;
-    this.Detail = `${m.Artist}`
+    this.Detail = `${m.Artist} - ${m.Title}`
     this.Type = 'MUSIC';
     this.Slides = this.getSlidesFromIMusic(m);
     return this;

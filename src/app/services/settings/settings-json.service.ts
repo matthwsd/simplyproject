@@ -38,9 +38,8 @@ export class SettingsJSONService extends JsonFile {
     }
   }
 
-  constructor() {
+  constructor() {   
     super();
-    this.exist(this.PATH, true);
     electronSettings.setPath(this.PATH);
   }
 

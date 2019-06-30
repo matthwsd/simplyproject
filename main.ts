@@ -31,7 +31,7 @@ function createWindow() {
   });
 
   win.setMenu(null);
-  win.webContents.openDevTools();
+  // win.webContents.openDevTools();
 
   if (serve) {
     require('electron-reload')(__dirname, {

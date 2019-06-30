@@ -116,13 +116,13 @@ export class HomeComponent implements OnInit {
       title: "Simply - Projeção",
     })
 
-    // projector.loadURL(url.format({
-    //   pathname: path.join(`${remote.app.getAppPath().replace(/\\/g, "/")}/dist/index.html`),
-    //   protocol: 'file:',
-    //   slashes: true
-    // }));
+    projector.loadURL(url.format({
+      pathname: path.join(`${remote.app.getAppPath().replace(/\\/g, "/")}/dist/index.html`),
+      protocol: 'file:',
+      slashes: true
+    }));
 
-    projector.loadURL('http://localhost:4200/');
+    // projector.loadURL('http://localhost:4200/');
     projector.setMenu(null);
     // projector.webContents.openDevTools();
   }
