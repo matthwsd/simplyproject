@@ -21,9 +21,9 @@ export class FileService {
     remote.dialog.showOpenDialog({
       properties: ['openFile', 'multiSelections'],
       filters: [
-        { name: "Todos", extensions: ['jpg', 'png', 'gif', 'mp4', 'mkv', 'avi', 'mov'] },
-        { name: "Imagens", extensions: ['jpg', 'png', 'gif'] },
-        { name: 'Vídeos', extensions: ['mp4', 'mkv', 'avi', 'mov'] }
+        { name: "Todos", extensions: ['jpg', 'png', 'gif', 'mp4', 'mkv', 'avi'] },
+        { name: "Imagens", extensions: ['jpg', 'png', 'gif', "jpeg"] },
+        { name: 'Vídeos', extensions: ['mp4', 'mkv', 'avi'] }
       ]
     }, (_) => {
       //Arquivos Selecionados

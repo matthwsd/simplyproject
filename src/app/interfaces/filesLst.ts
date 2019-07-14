@@ -9,11 +9,11 @@ export class IFile {
     public type: "VIDEO" | "IMAGE";
 
     public static IMAGES: String[] = [
-        'png', 'jpg'
+        'png', 'jpg', 'gif', 'jpeg'
     ];
 
     public static VIDEOS: String[] = [
-        'avi', 'mp4', 'mkv', 'mov'
+        'avi', 'mp4', 'mkv'
     ];
 
     public static TYPE: any = {
