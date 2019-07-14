@@ -287,6 +287,10 @@ export class PreviewComponent implements OnInit {
     remote.ipcMain.on("preview-image-file", (event, arg) => {
       this.onFileSelect(arg);
     })
+
+    remote.ipcMain.on("preview-image-file-background", (event, arg) => {
+      this.onFileBackgroundSelect(arg);
+    })
   }
 
   private extraListeners() {

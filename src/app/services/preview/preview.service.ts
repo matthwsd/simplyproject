@@ -64,6 +64,14 @@ export class PreviewService {
     ipcRenderer.send("preview-image-file", file);
   }
 
+  /**
+ * Set a new Image Background SRC
+ * @param file
+ */
+  public setImageSrcBackground(file: IFile) {
+    ipcRenderer.send("preview-image-file-background", file);
+  }
+
   constructor() { }
 
 

@@ -6,7 +6,7 @@ import { routerNgProbeToken } from '@angular/router/src/router_module';
 let win: BrowserWindow, serve;
 const args = process.argv.slice(1);
 serve = args.some(val => val === '--serve');
-
+app.disableHardwareAcceleration();
 process.setMaxListeners(50);
 
 function createWindow() {

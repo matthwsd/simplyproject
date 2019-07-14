@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, ApplicationRef } from '@angular/core';
 
 import { MusicsService } from '../../../services/music/musics.service';
 import { PresentationService } from '../../../services/presentation/presentation.service';
@@ -48,6 +48,8 @@ export class MusicsSelectComponent implements OnInit {
     } else {
       this.musics = this.allMusics;
     }
+    
+    this.appref.tick();
   }
 
   deleteMusic() {
@@ -89,7 +91,8 @@ export class MusicsSelectComponent implements OnInit {
     private musicsService: MusicsService,
     private activeModal: NgbActiveModal,
     private vcr: ViewContainerRef,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private appref: ApplicationRef
   ) {
     toastr.setRootViewContainerRef(vcr);
   }

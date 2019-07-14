@@ -23,6 +23,7 @@ export class BibleService {
   bibleSearch(scripture: IBible[], search: string): BibleSearchResult {
     let matchLivro = search.match(/(([0-9]\s[a-zA-Z]{1,})|([0-9][a-zA-Z]{1,}))|([a-zA-Z]){1,}/g);
     let matchReferencia = search.replace(/(([0-9]\s[a-zA-Z]{1,})|([0-9][a-zA-Z]{1,}))|([a-zA-Z]){1,}/g, "").match(/([0-9]{1,}\:[0-9]{1,}\-[0-9]{1,}\,[0-9\-\,]{1,})|([0-9]{1,}\:[0-9\,]{1,}[0-9]{1,}\-[0-9\-\,]{1,})|([0-9]{1,}\:[0-9]{1,}\-[0-9]{1,})|[0-9\:]{1,}[0-9\,]{1,}|([0-9]{1,}\:[0-9]{1,})|[0-9]{1,}/g)
+    console.log(matchLivro, matchReferencia);
     var book = matchLivro ? matchLivro[0] : "";
     var ref = matchReferencia ? matchReferencia[0] : "";
     if (book && ref) {
@@ -37,6 +38,7 @@ export class BibleService {
     let capitulo = ref.match(/[0-9\-\,]{1,}|[0-9\-]{1,}|[0-9]{1,}/g)[0];
     let versiculos = ref.match(/[0-9\-\,]{1,}|[0-9\-]{1,}|[0-9]{1,}/g)[1];
     var livroR = scripture.find((b) => { return this.accentFold(b.$.n.toLowerCase()) == this.accentFold(book) });
+    console.log(livroR);
     var capR = livroR.c[parseInt(capitulo) - 1];
 
     if (versiculos && (versiculos.indexOf("-") != -1 || versiculos.indexOf(",") != -1)) {

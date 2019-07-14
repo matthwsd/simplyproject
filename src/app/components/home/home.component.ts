@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from "@angular/router";
 import { IFile } from "../../interfaces/filesLst";
-import { remote, screen } from 'electron';
+import { remote, screen, app } from 'electron';
 import { ISlide } from '../../interfaces/slide';
 import { Shortcuts } from '../../services/shortcuts/shortcuts.service';
 import { PreviewService, SettingsJSONService, ProjectorService, FileService } from '../../services';
@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
 
   onFileBackgroundSelect(fileSelected: IFile) {
     if (fileSelected.type == "IMAGE")
-      this.preview.setImageSrc(fileSelected);
+      this.preview.setImageSrcBackground(fileSelected);
     else
       this.preview.setVideoSrcBackground(fileSelected);
   }
@@ -78,7 +78,6 @@ export class HomeComponent implements OnInit {
   }
 
   onBackSelectScreenProjection() {
-    debugger;
     var backPath = this.files.getPathBack();
     if (backPath) {
       var file = new IFile(backPath);
@@ -109,19 +108,20 @@ export class HomeComponent implements OnInit {
       y: sc.y,
       frame: false,
       fullscreen: true,
+      alwaysOnTop: snd ? true : false,
       webPreferences: {
         webSecurity: false
       },
       title: "Simply - Projeção",
     })
 
-    projector.loadURL(url.format({
-      pathname: path.join(`${remote.app.getAppPath().replace(/\\/g, "/")}/dist/index.html`),
-      protocol: 'file:',
-      slashes: true
-    }));
+    // projector.loadURL(url.format({
+    //   pathname: path.join(`${remote.app.getAppPath().replace(/\\/g, "/")}/dist/index.html`),
+    //   protocol: 'file:',
+    //   slashes: true
+    // }));
 
-    // projector.loadURL('http://localhost:4200/');
+    projector.loadURL('http://localhost:4200/');
     projector.setMenu(null);
     // projector.webContents.openDevTools();
   }

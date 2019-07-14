@@ -8,7 +8,7 @@ import { IFile } from '../../interfaces/filesLst';
 @Component({
   selector: 'app-projector',
   templateUrl: './projector.component.html',
-  styleUrls: ['./projector.component.sass']
+  styleUrls: ['./projector.component.scss']
 })
 export class ProjectorComponent implements OnInit {
 

@@ -52,6 +52,7 @@ export class BibleComponent implements OnInit, OnDestroy {
     this.results = result;
     this.bookSearched = bookSearched;
     this.refSearched = refSearched;
+    console.log(result, refSearched, bookSearched);
     this.resultSelected = null;
     this.goingLive = null;
   }
