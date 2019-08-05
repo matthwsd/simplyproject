@@ -102,12 +102,12 @@ export class HomeComponent implements OnInit {
     const sc = snd ? snd.workArea : screen.getPrimaryDisplay().workArea;
     console.log(screen.getAllDisplays());
     let projector = new BrowserWindow({
-      width: sc.width,
-      height: sc.height,
+      width: sc.width /2,
+      height: sc.height /2,
       x: sc.x,
       y: sc.y,
       frame: false,
-      fullscreen: true,
+      fullscreen: false,
       alwaysOnTop: snd ? true : false,
       webPreferences: {
         webSecurity: false

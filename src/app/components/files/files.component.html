@@ -13,7 +13,7 @@
   </ul>
 </div> -->
   <ul class="file-list">
-    <li *ngFor="let file of files; index as i" class="file-list-item" (click)="selectFile(file)"
+    <li *ngFor="let file of files; index as i" class="file-list-item" (dblclick)="selectFile(file)"
       (contextmenu)="contextMenu(i, $event)">
       <video muted class="video-preview" [src]="'file://'+file.path" *ngIf="file.type =='VIDEO'">
       </video>
